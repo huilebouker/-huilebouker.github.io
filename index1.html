@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Huilerie Bouker - Ksour Essef</title>
+<style>
+body{margin:0;font-family:Arial;background:#fdfcfa;color:#222}
+header{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;background:#fff;box-shadow:0 2px 12px #0001;position:sticky;top:0;z-index:99}
+.logoBox{display:flex;align-items:center;gap:10px}
+.logoBox img{width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid #c9a86a}
+.logoBox b{font-family:Georgia;color:#1a2e1a;font-size:19px}
+.btn{background:#1a2e1a;color:#fff;border:none;padding:10px 20px;border-radius:100px;font-weight:bold;cursor:pointer}
+.hero{text-align:center;padding:22px 20px}
+.hero img{width:100px;height:100px;border-radius:50%;object-fit:cover;border:3px solid #c9a86a}
+.hero h1{font-family:Georgia;font-size:38px;color:#1a2e1a;margin:8px 0 2px}
+.badge{display:inline-block;background:#1a2e1a;color:#d9c48b;padding:6px 14px;border-radius:100px;font-size:12px;font-weight:bold;margin-top:8px;letter-spacing:.3px}
+.card{max-width:1150px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;padding:16px}
+.item{background:#fff;border-radius:18px;padding:14px;box-shadow:0 8px 24px #0001;display:flex;flex-direction:column}
+.imgWrap{height:400px;background:#0e0e0e;border-radius:14px;display:grid;place-items:center;overflow:hidden}
+.imgWrap img{width:100%;height:100%;object-fit:contain}
+.item h3{color:#1a2e1a;margin:12px 0 4px;font-family:Georgia;font-size:15px}
+.desc{color:#777;font-size:12px;flex:1}
+.pr{font-weight:bold;font-size:19px;margin:8px 0}
+.item button{width:100%;background:#1a2e1a;color:#fff;border:none;padding:11px;border-radius:100px;margin-top:10px;cursor:pointer;font-weight:bold}
+#cart{position:fixed;right:-100%;top:0;width:400px;max-width:94%;height:100vh;background:#fff;box-shadow:-12px 0 32px #0002;transition:.35s;padding:18px;z-index:999;display:flex;flex-direction:column}
+#cart.open{right:0}
+.cart-item{display:flex;gap:12px;align-items:center;border-bottom:1px solid #eee;padding:12px 0}
+.cart-item img{width:60px;height:60px;border-radius:12px;object-fit:contain;background:#0e0e0e}
+.cart-name{font-weight:bold;font-size:13px;font-family:Georgia;color:#1a2e1a}
+.cart-meta{font-size:12px;color:#666}
+</style>
+</head>
+<body>
+<header><div class="logoBox"><img src="logo.jpg"><b>Huilerie Bouker</b></div><button class="btn" onclick="document.getElementById('cart').classList.add('open')">🛒 <span id="cnt">0</span></button></header>
+<div class="hero"><img src="logo.jpg"><h1>Huile Bouker</h1><p style="color:#555;margin:4px 0">Huile d'Olive Vierge Extra • Ksour Essef</p><div class="badge">🚚 Livraison 8DT • Gratuite dès 400DT</div></div>
+
+<div class="card">
+<div class="item"><div class="imgWrap"><img src="1l.png"></div><h3>Huile d'Olive 1L</h3><div class="desc">Bouteille verre, pression à froid</div><div class="pr">28 DT</div><button onclick="add(1,'Huile d\'Olive 1L - Bouteille',28,'1l.png')">Ajouter</button></div>
+<div class="item"><div class="imgWrap"><img src="2l.png"></div><h3>Bidon 2L</h3><div class="desc">Format petit famille</div><div class="pr">55 DT</div><button onclick="add(2,'Bidon 2 Litres',55,'2l.png')">Ajouter</button></div>
+<div class="item"><div class="imgWrap"><img src="5l.png"></div><h3>Bidon 5L</h3><div class="desc">Best-seller</div><div class="pr">130 DT</div><button onclick="add(3,'Bidon 5 Litres',130,'5l.png')">Ajouter</button></div>
+<div class="item"><div class="imgWrap"><img src="10l.png"></div><h3>Bidon 10L</h3><div class="desc">Format économique</div><div class="pr">240 DT</div><button onclick="add(4,'Bidon 10 Litres',240,'10l.png')">Ajouter</button></div>
+<div class="item"><div class="imgWrap"><img src="20l.png"></div><h3>Bidon 20L</h3><div class="desc">Grandes familles</div><div class="pr">460 DT</div><button onclick="add(5,'Bidon 20 Litres',460,'20l.png')">Ajouter</button></div>
+<div class="item"><div class="imgWrap"><img src="50l.png"></div><h3>Bidon 50L - Pro</h3><div class="desc">Restaurants & Export</div><div class="pr">1100 DT</div><button onclick="add(6,'Bidon 50 Litres Pro',1100,'50l.png')">Ajouter</button></div>
+</div>
+<section style="max-width:1150px;margin:40px auto 0;padding:0 16px">
+<div style="background:#122412;color:#fff;border-radius:24px;padding:28px;display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center">
+<div>
+<h2 style="font-family:Georgia;font-size:28px;margin:0;line-height:1.15">L'excellence d'un terroir,<br>l'âme d'une famille.</h2>
+<p style="color:#d6e2d6;line-height:1.7;font-size:14px;margin-top:14px">
+Depuis trois générations à Ksour Essef, nous pressons à froid le jour même de la récolte. Acidité &lt;0,3%, 100% pur jus. L'huile de notre table, à la vôtre.<br><br>
+<b>Venez nous voir directement à la maasra et dégustez avant d'acheter.</b>
+</p>
+
+<div style="margin-top:16px;background:#ffffff12;padding:14px 16px;border-radius:14px;font-size:13px;line-height:1.6">
+<div style="display:flex;gap:8px;margin-bottom:6px"><span>⭐</span><b>معصرة بوكر للزيت البيولوجي - 4,2★ (5 avis)</b></div>
+📍 <b>Route C82 (Route de Sfax), Ksour Essef 5180 - Mahdia</b><br>
+Entreprise d'embouteillage d'huile d'olive - À côté de AGIL Ksour Essef<br>
+🕒 <b>Ouvert 24h/24 - 7j/7</b><br>
+📞 <b>28 693 560</b> • Livraison 8DT, gratuite dès 400DT
+</div>
+<title>Huile Bouker - معصرة بوكر للزيت البيولوجي | Huile d'Olive Extra Vierge Ksour Essef - Route C82 | 4.2★</title>
+<meta name="description" content="معصرة بوكر للزيت البيولوجي - Huile d'Olive Extra Vierge pressée à froid à Ksour Essef, Route C82. 1L 28DT, 5L 130DT, 20L 460DT. Livraison 8DT, gratuite dès 400DT. Ouvert 24/24. 28 693 560 - 4.2★ sur Google.">
+<meta name="keywords" content="huile olive ksour essef, maasra bouker, معصرة بوكر, zit zitouna mahdia, huile olive extra vierge tunisie, route chebba, C82">
+<div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+<a href="https://www.google.com/maps/search/معصرة+بوكر+للزيت+البيولوجي+Ksour+Essef+C82" target="_blank" style="background:#fff;color:#122412;padding:11px 18px;border-radius:100px;font-weight:bold;text-decoration:none;font-size:13px">📍 Ouvrir sur Google Maps</a>
+<a href="https://wa.me/21628693560?text=Salam,%20nheb%20njikom%20lel%20ma3sra" target="_blank" style="background:#25D366;color:#fff;padding:11px 18px;border-radius:100px;font-weight:bold;text-decoration:none;font-size:13px">💬 WhatsApp</a>
+</div>
+</div>
+
+<div style="border-radius:18px;overflow:hidden;background:#fff;height:380px;position:relative">
+<iframe 
+src="https://www.google.com/maps?q=معصرة%20بوكر%20للزيت%20البيولوجي%20Ksour%20Essef%20C82&z=16&output=embed"
+width="100%" height="100%" style="border:0" loading="lazy" allowfullscreen>
+</iframe>
+</div>
+</div>
+<div style="text-align:center;padding:24px;color:#999;font-size:12px">© 2024 Huile Bouker - معصرة بوكر للزيت البيولوجي - Route C82 Ksour Essef - Produit en Tunisie 🇹🇳</div>
+</section>
+
+<div id="cart">
+<h3 style="font-family:Georgia;margin:0">Votre Panier</h3>
+<button onclick="document.getElementById('cart').classList.remove('open')" style="position:absolute;top:12px;right:12px;border:none;background:#eee;width:32px;height:32px;border-radius:50%;cursor:pointer">✕</button>
+<div id="list" style="flex:1;overflow:auto;margin-top:16px"></div>
+<div style="border-top:2px solid #1a2e1a;padding-top:12px">
+<div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px"><span>Sous-total</span><span><span id="sub">0</span> DT</span></div>
+<div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:8px"><span>Livraison <span id="liv-label" style="color:#777;font-size:11px"></span></span><span id="liv">8 DT</span></div>
+<div style="display:flex;justify-content:space-between;font-weight:bold;font-size:17px;margin-top:8px;border-top:1px dashed #ddd;padding-top:8px"><span>Total</span><span><span id="tot">0</span> DT</span></div>
+<button onclick="order()" style="width:100%;background:#25D366;color:#fff;border:none;padding:14px;border-radius:100px;margin-top:12px;font-weight:bold;cursor:pointer">Commander WhatsApp</button>
+</div>
+</div>
+
+<script>
+let C=[];
+function add(id,n,p,img){
+  let f=C.find(x=>x.id==id);
+  if(f){f.q++} else {C.push({id,n,p,img,q:1})}
+  up();
+  document.getElementById('cart').classList.add('open');
+}
+function getShip(s){ return s>=400 ? 0 : 8; }
+function up(){
+  document.getElementById('cnt').innerText=C.reduce((a,b)=>a+b.q,0);
+  let h='',sub=0;
+  C.forEach((x,i)=>{
+    sub+=x.p*x.q;
+    h+=`<div class="cart-item"><img src="${x.img}"><div style="flex:1"><div class="cart-name">${x.n}</div><div class="cart-meta">Qté: ${x.q} • ${x.p}DT = <b>${x.p*x.q}DT</b></div></div><span onclick="C.splice(${i},1);up()" style="color:#c00;cursor:pointer;font-weight:bold;padding:8px">✕</span></div>`;
+  });
+  let ship = C.length ? getShip(sub) : 0;
+  let tot = sub + ship;
+  document.getElementById('list').innerHTML = h || '<p style="color:#999;text-align:center;margin-top:40px">Panier vide</p>';
+  document.getElementById('sub').innerText = sub;
+  document.getElementById('liv').innerText = ship==0 ? 'GRATUITE 🎉' : '8 DT';
+  document.getElementById('liv-label').innerText = (sub>=400 && sub>0) ? '(offerte)' : '';
+  document.getElementById('liv').style.color = ship==0 ? '#0a7a0a' : '#000';
+  document.getElementById('liv').style.fontWeight = ship==0 ? 'bold' : 'normal';
+  document.getElementById('tot').innerText = tot;
+}
+function order(){
+  if(!C.length){alert('Panier vide');return}
+  let sub=0; C.forEach(x=>sub+=x.p*x.q);
+  let ship=getShip(sub); let tot=sub+ship;
+  let m='Bonjour Huile Bouker,%0ACommande:%0A%0A';
+  C.forEach(x=>{m+=`• ${x.n} x${x.q} = ${x.p*x.q}DT%0A`});
+  m+=`%0ASous-total: ${sub}DT%0ALivraison: ${ship==0?'GRATUITE':'8DT'}%0ATotal: ${tot}DT`;
+  window.open('https://wa.me/21628693560?text='+m);
+}
+</script>
+</body>
+</html>

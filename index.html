@@ -78,38 +78,34 @@ async function orderWhatsApp(){
  let total=subtotal+delivery;
  let payMethod=document.querySelector('input[name="pay"]:checked').value;
 
- // Ken paiement à la livraison - kima 9bal WhatsApp
  if(payMethod==='livraison'){
    let detail=cart.map(i=>`${i.qty}x ${i.name} = ${i.price*i.qty} DT`).join('%0A');
-   let msg=`Salam Huilerie Bouker%0A%0A${detail}%0A%0ASous-total: ${subtotal} DT%0ALivraison: ${delivery===0?'GRATUITE':delivery+' DT'}%0ATOTAL: ${total} DT%0APaiement: A la livraison%0A%0ANom: ${name}%0ATel: ${tel}%0AAdresse: ${adr}`;
+   let msg=`Salam Huilerie Bouker%0A%0A${detail}%0A%0ATOTAL: ${total} DT%0APaiement: A la livraison%0A%0ANom: ${name}%0ATel: ${tel}%0AAdresse: ${adr}`;
    window.open(`https://api.whatsapp.com/send?phone=21628693560&text=${msg}`,'_blank');
    return;
  }
 
- // Ken paiement par carte - yemchi lil Konnect
- // BADAL HEDHOM B MTE3K
- const KONNECT_API_KEY = "HAT API KEY MTE3K HNA";
- const WALLET_ID = "HAT WALLET ID MTE3K HNA";
-
+ // FLOUCI - Visa/Mastercard...
+ const FLOUCI_TOKEN = "HAT TOKEN MTE3K HNA";
+ const FLOUCI_SECRET = "HAT SECRET MTE3K HNA";
  try{
-   let res = await fetch("https://api.konnect.network/api/v2/payments/init-payment",{
+   let res = await fetch("https://api.flouci.com/api/generate_payment",{
      method:"POST",
-     headers:{"x-api-key":KONNECT_API_KEY,"Content-Type":"application/json"},
+     headers:{"Content-Type":"application/json"},
      body: JSON.stringify({
-       receiverWalletId: WALLET_ID,
-       amount: total*1000, // Konnect ye7seb b millime
-       description: `Huile Bouker - ${name} - ${tel}`,
-       acceptedPaymentMethods: ["bank_card","e-DINAR","flouci"],
-       successUrl: "https://huilebouker.tn/success.html",
-       failUrl: "https://huilebouker.tn/fail.html",
-       webhook: "https://huilebouker.tn/webhook",
-       orderId: Date.now().toString()
+       app_token: FLOUCI_TOKEN,
+       app_secret: FLOUCI_SECRET,
+       amount: total*1000,
+       accept_card: "true",
+       success_link: "https://huilebouker.github.io/success.html",
+       fail_link: "https://huilebouker.github.io/fail.html",
+       developer_tracking_id: Date.now().toString()
      })
    });
    let data = await res.json();
-   if(data.payUrl){ window.location.href = data.payUrl; }
-   else{ alert("Erreur paiement: "+JSON.stringify(data)); }
- }catch(e){ alert("Erreur: "+e.message); }
+   if(data.result && data.result.link){ window.location.href = data.result.link; }
+   else{ alert("Erreur: "+JSON.stringify(data)); }
+ }catch(e){ alert(e.message); }
 }
 </script>
 </body>

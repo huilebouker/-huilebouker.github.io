@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Huilerie Bouker | Huile d'olive BIO Extra Vierge - Ksour Essef</title>
-<meta name="description" content="Huilerie Bouker Ksour Essef - Huile d'olive extra vierge BIO 100% naturelle. 1L 2L 5L 10L 20L 50L. Livraison partout en Tunisie. Depuis 3 générations.">
+<meta name="description" content="Huilerie Bouker Ksour Essef - Huile d'olive extra vierge BIO 100% naturelle.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',sans-serif;background:#FFFEF9;color:#1a1a1a}
@@ -40,22 +40,43 @@ nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(255,254,249,0.9
 <input id="clientName" class="input" placeholder="Nom et prénom *">
 <input id="clientTel" class="input" placeholder="Téléphone *">
 <input id="clientAdr" class="input" placeholder="Adresse">
-<button id="locBtn" onclick="getLocation()">📍 Partager ma position GPS</button>
+<button id="locBtn" onclick="getLocation()">📍 Partager ma position GPS (client)</button>
 <small id="locStatus" style="display:block;text-align:center;margin-bottom:8px;color:#2e7d32;font-weight:600"></small>
 <div class="paybox">
 <p style="font-weight:700;margin-bottom:8px">Méthode de paiement:</p>
 <label style="display:flex;gap:8px;margin-bottom:8px;cursor:pointer"><input type="radio" name="pay" value="livraison" checked> 💵 Paiement à la livraison</label>
 <label style="display:flex;gap:8px;cursor:pointer"><input type="radio" name="pay" value="carte"> 💳 Paiement par carte (Flouci / D17)</label>
-<div id="cardInfo" style="display:none;margin-top:10px;padding:8px;background:white;border-radius:8px;font-size:12px;color:#1a3a1a;border:1px dashed #C6A15B">🔒 Paiement sécurisé par Flouci. Vous serez redirigé vers Visa / Mastercard / e-DINAR.</div>
+<div id="cardInfo" style="display:none;margin-top:10px;padding:8px;background:white;border-radius:8px;font-size:12px;color:#1a3a1a;border:1px dashed #C6A15B">🔒 Paiement sécurisé par Flouci.</div>
 </div>
 <button class="order-btn" id="orderBtn" onclick="orderWhatsApp()">Commander Maintenant</button>
 </div>
 </div>
-<section class="hero"><div><img src="rond.png" style="width:140px;background:white;border-radius:50%;padding:8px;margin-bottom:20px"><h1 style="font-size:clamp(32px,5vw,52px);line-height:0.95">L'OR VERT DE<br><span style="color:#C6A15B">KSOUR ESSEF</span></h1><p style="margin:20px auto;max-width:600px;font-size:18px;opacity:0.95">Huile d'olive extra vierge, extrait à froid, de nos oliviers à votre table depuis 3 générations.</p><a href="#produits" style="background:#C6A15B;color:#111;padding:14px 30px;border-radius:100px;text-decoration:none;font-weight:900;display:inline-block;margin-top:10px">Découvrir nos huiles →</a></div></section>
-<section id="huilerie" style="padding:80px 5%;background:#FFFEF8;display:flex;flex-wrap:wrap;gap:40px;align-items:center"><div style="flex:1;min-width:300px"><h2 style="font-size:36px;color:#1a3a1a">Huilerie Bouker,<br>Une histoire de famille</h2><p style="margin-top:15px;line-height:1.7;color:#444">Au cœur de Mahdia, nous cultivons et pressons nos olives avec passion. Pas d'intermédiaire, pas de mélange. Juste l'olive, la pierre, et le savoir-faire Tunisien authentique.</p><div style="display:flex;gap:16px;margin-top:25px;flex-wrap:wrap"><div><b style="font-size:20px;color:#C6A15B">Extra Vierge</b><br><small>Première Pression</small></div><div><b style="font-size:20px;color:#C6A15B">100% BIO</b><br><small>Naturelle & Pure</small></div><div><b style="font-size:20px;color:#C6A15B">À Froid</b><br><small>Extraction</small></div></div></div><div style="flex:1;min-width:300px"><img src="expo.png" style="width:100%;border-radius:20px;box-shadow:0 20px 40px rgba(0,0,0,0.15)"><p style="text-align:center;margin-top:10px;font-size:13px;opacity:0.6">Salon International - Tunisie à l'honneur 🇹🇳</p></div></section>
-<section style="padding:60px 5%;background:#1a3a1a;color:white;text-align:center"><h2 style="font-size:32px">De l'arbre à la bouteille</h2><p style="opacity:0.7;margin-top:10px">Qualité contrôlée à chaque étape</p><img src="hero.png" style="width:100%;max-width:800px;border-radius:20px;margin-top:30px;height:380px;object-fit:cover"></section>
-<section style="padding:80px 5%;display:flex;flex-wrap:wrap;gap:40px;align-items:center;background:white"><div style="flex:1;min-width:300px"><img src="bidon.png" style="width:100%;border-radius:20px;background:#f7f5ee"></div><div style="flex:1;min-width:300px"><h2 style="font-size:32px;color:#1a3a1a">Notre Best-Seller 3 Litres</h2><p style="margin:15px 0;color:#555;line-height:1.6">Le format familial idéal. Conservation parfaite dans son bidon métal premium.</p><b style="font-size:28px">48 DT Seulement</b><br><button onclick="addToCart('Bidon 3L',48,'bidon.png')" style="margin-top:15px;background:#C6A15B;color:#111;border:none;padding:14px 30px;border-radius:100px;font-weight:900;cursor:pointer">+ Ajouter au panier</button></div></section>
+
+<!-- HERO - BADALT L'OR VERT -> LE VRAI HUILE -->
+<section class="hero"><div><img src="rond.png" style="width:140px;background:white;border-radius:50%;padding:8px;margin-bottom:20px"><h1 style="font-size:clamp(32px,5vw,52px);line-height:0.95">Le Vrai Huile De<br><span style="color:#C6A15B">KSOUR ESSEF</span></h1><p style="margin:20px auto;max-width:600px;font-size:18px;opacity:0.95">Huile d'olive extra vierge, extrait à froid, de nos oliviers à votre table depuis 3 générations.</p><a href="#produits" style="background:#C6A15B;color:#111;padding:14px 30px;border-radius:100px;text-decoration:none;font-weight:900;display:inline-block;margin-top:10px">Découvrir nos huiles →</a></div></section>
+
+<section id="huilerie" style="padding:80px 5%;background:#FFFEF8;display:flex;flex-wrap:wrap;gap:40px;align-items:center"><div style="flex:1;min-width:300px"><h2 style="font-size:36px;color:#1a3a1a">Huilerie Bouker,<br>Une histoire de famille</h2><p style="margin-top:15px;line-height:1.7;color:#444">Au cœur de Mahdia, nous cultivons et pressons nos olives avec passion. Pas d'intermédiaire, pas de mélange. Juste l'olive, la pierre, et le savoir-faire Tunisien authentique.</p><div style="display:flex;gap:16px;margin-top:25px;flex-wrap:wrap"><div><b style="font-size:20px;color:#C6A15B">Extra Vierge</b><br><small>Première Pression</small></div><div><b style="font-size:20px;color:#C6A15B">100% BIO</b><br><small>Naturelle & Pure</small></div><div><b style="font-size:20px;color:#C6A15B">À Froid</b><br><small>Extraction</small></div></div></div><div style="flex:1;min-width:300px"><img src="expo.png" style="width:100%;border-radius:20px;box-shadow:0 20px 40px rgba(0,0,0,0.15)"></div></section>
+
 <section id="produits" style="background:#f7f5ee;padding:60px 0"><h2 style="text-align:center;font-size:36px;color:#1a3a1a">Nos Huiles d'Exception</h2><div style="text-align:center;margin:15px 0"><span style="background:white;padding:10px 18px;border-radius:100px;box-shadow:0 4px 15px rgba(0,0,0,0.05)"><img src="rond.png" class="badge-logo">Huile Bouker Bio - C82 • Ouvert 24h <b style="background:#1a3a1a;color:white;padding:6px 12px;border-radius:100px;margin-left:10px">1L/2L/5L/10L/20L/50L</b></span></div><div class="prod-grid"><div class="prod-card"><img src="1L.png"><h3>1 Litre</h3><p>16 DT</p><button onclick="addToCart('1L',16,'1L.png')" style="background:#1a3a1a;color:white;padding:8px 14px;border-radius:20px;border:none;cursor:pointer;margin-top:8px">+ Ajouter</button></div><div class="prod-card"><img src="2L.png"><h3>2 Litres</h3><p>32 DT</p><button onclick="addToCart('2L',32,'2L.png')" style="background:#1a3a1a;color:white;padding:8px 14px;border-radius:20px;border:none;cursor:pointer;margin-top:8px">+ Ajouter</button></div><div class="prod-card"><img src="5L.png"><h3>5 Litres</h3><p>80 DT</p><button onclick="addToCart('5L',80,'5L.png')" style="background:#C6A15B;color:#111;padding:8px 14px;border-radius:20px;border:none;cursor:pointer;font-weight:900;margin-top:8px">+ Ajouter</button></div><div class="prod-card"><img src="10L.png"><h3>10 Litres</h3><p>160 DT</p><button onclick="addToCart('10L',160,'10L.png')" style="background:#1a3a1a;color:white;padding:8px 14px;border-radius:20px;border:none;cursor:pointer;margin-top:8px">+ Ajouter</button></div><div class="prod-card"><img src="20L.png"><h3>20 Litres</h3><p>320 DT</p><button onclick="addToCart('20L',320,'20L.png')" style="background:#1a3a1a;color:white;padding:8px 14px;border-radius:20px;border:none;cursor:pointer;margin-top:8px">+ Ajouter</button></div><div class="prod-card"><img src="50L.png"><h3>50 Litres</h3><p>800 DT</p><button onclick="addToCart('50L',800,'50L.png')" style="background:#1a3a1a;color:white;padding:8px 14px;border-radius:20px;border:none;cursor:pointer;margin-top:8px">+ Ajouter</button></div></div></section>
+
+<!-- LOCALISATION HUILERIE - LOUTA KHALIS -->
+<section id="localisation" style="padding:60px 5%;background:white;text-align:center">
+<h2 style="font-size:32px;color:#1a3a1a">📍 Retrouvez notre Huilerie</h2>
+<p style="margin:10px 0 20px;color:#555">Ksour Essef - Mahdia - Route de la huilerie - Ouvert 24h/24</p>
+<div style="border-radius:20px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,0.12);max-width:900px;margin:0 auto">
+<iframe src="https://www.google.com/maps?q=Ksour+Essef+Mahdia+Huilerie+Bouker&z=15&output=embed" width="100%" height="400" style="border:0;" loading="lazy"></iframe>
+</div>
+<div style="margin-top:20px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+<a href="https://www.google.com/maps/search/?api=1&query=Huilerie+Bouker+Ksour+Essef+Mahdia" target="_blank" style="background:#1a3a1a;color:white;padding:12px 24px;border-radius:100px;text-decoration:none;font-weight:700">🧭 Itinéraire Google Maps</a>
+<a href="https://api.whatsapp.com/send?phone=21628693560" target="_blank" style="background:#25D366;color:white;padding:12px 24px;border-radius:100px;text-decoration:none;font-weight:700">💬 WhatsApp: 28 693 560</a>
+</div>
+</section>
+
+<footer style="background:#1a3a1a;color:white;padding:30px 5%;text-align:center">
+<p><b>Huilerie Bouker</b> - Ksour Essef - Mahdia - Tunisie</p>
+<p style="opacity:0.6;font-size:13px;margin-top:8px">© 2026 Huilerie Bouker - 100% BIO - Depuis 3 générations</p>
+</footer>
+
 <script>
 let cart=[];
 let clientLocation="";
@@ -76,7 +97,7 @@ function getLocation(){
      b.style.background="#1a3a1a";
    }, err=>{
      s.innerText="❌ Activez GPS et autorisez localisation";
-     alert("SVP activez GPS fi telifounek w 3awed ekbs Partager");
+     alert("SVP activez GPS");
    });
  } else { s.innerText="GPS non supporté"; }
 }
@@ -90,7 +111,7 @@ async function orderWhatsApp(){
  let delivery=subtotal>=400?0:8;
  let total=subtotal+delivery;
  let payMethod=document.querySelector('input[name="pay"]:checked').value;
- let locText = clientLocation ? `\n📍 Localisation GPS: ${clientLocation}` : "";
+ let locText = clientLocation ? `\n📍 Localisation Client: ${clientLocation}` : "";
  let detail=cart.map(i=>`${i.qty}x ${i.name} = ${i.price*i.qty} DT`).join('\n');
  if(payMethod==='livraison'){
    let msg=`Salam Huilerie Bouker\n\n${detail}\n\nSous-total: ${subtotal} DT\nLivraison: ${delivery===0?'GRATUITE':delivery+' DT'}\nTOTAL: ${total} DT\nPaiement: A la livraison\n\nNom: ${name}\nTel: ${tel}\nAdresse: ${adr}${locText}`;
@@ -100,9 +121,9 @@ async function orderWhatsApp(){
  const FLOUCI_PUBLIC_KEY = "PUT_YOUR_PUBLIC_KEY_HERE";
  const FLOUCI_PRIVATE_KEY = "PUT_YOUR_PRIVATE_KEY_HERE";
  if(FLOUCI_PUBLIC_KEY.includes("PUT_YOUR")){
-   let msg=`Salam Huilerie Bouker\n\n${detail}\n\nTOTAL: ${total} DT\nPaiement: Carte Bancaire (Client 7ab ya5las en ligne)\n\nNom: ${name}\nTel: ${tel}\nAdresse: ${adr}${locText}\n\nNote: Client e5tar paiement par carte`;
+   let msg=`Salam Huilerie Bouker\n\n${detail}\n\nTOTAL: ${total} DT\nPaiement: Carte Bancaire\n\nNom: ${name}\nTel: ${tel}\nAdresse: ${adr}${locText}`;
    window.open(`https://api.whatsapp.com/send?phone=21628693560&text=${encodeURIComponent(msg)}`,'_blank');
-   alert("⚠️ Mazal ma 7atitech clé Flouci. Commande tba3thet par WhatsApp.");
+   alert("Commande envoyée par WhatsApp. Ajoutez clés Flouci pour paiement en ligne.");
    return;
  }
  try{
@@ -115,7 +136,7 @@ async function orderWhatsApp(){
    let data = await res.json();
    if(data.result && data.result.link){ window.location.href = data.result.link; }
    else { alert("Erreur Flouci: " + JSON.stringify(data)); document.getElementById('orderBtn').innerText="Commander Maintenant"; }
- }catch(e){ alert("Erreur connexion Flouci: " + e.message); document.getElementById('orderBtn').innerText="Commander Maintenant"; }
+ }catch(e){ alert("Erreur Flouci: " + e.message); document.getElementById('orderBtn').innerText="Commander Maintenant"; }
 }
 </script>
 </body>

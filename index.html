@@ -1,184 +1,119 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Huilerie Bouker | Huile Bio - Ksour Essef C82 92W4+FV</title>
+<title>Huilerie Bouker | Huile Bio - Ksour Essef C82 92M4+FV</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',sans-serif;background:#FFFEF9;color:#1a1a1a;overflow-x:hidden}h1,h2{font-family:'Playfair Display',serif}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',sans-serif;background:#FFFEF9;color:#1a1a1a;overflow-x:hidden}
+h1,h2{font-family:'Playfair Display',serif}
 nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(255,254,249,0.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.05);padding:14px 5%;display:flex;justify-content:space-between;align-items:center}
 .logo{font-family:'Playfair Display';font-weight:900;font-size:21px;color:#1a3a1a}.logo span{color:#C6A15B}
-.menu-btn{width:44px;height:44px;background:#1a3a1a;border-radius:50%;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;border:none}.menu-btn span{width:18px;height:2px;background:white;border-radius:2px}
-.side-menu{position:fixed;top:0;right:-100%;width:380px;max-width:85vw;height:100vh;background:#1a3a1a;z-index:2000;transition:0.5s cubic-bezier(0.77,0,0.175,1);padding:90px 40px;display:flex;flex-direction:column;gap:28px}
-.side-menu.active{right:0}.side-menu a{color:white;text-decoration:none;font-size:26px;font-family:'Playfair Display';opacity:0.7}.side-menu a.active{opacity:1;color:#C6A15B}.close{position:absolute;top:18px;right:18px;background:rgba(255,255,255,0.1);border:none;width:44px;height:44px;border-radius:50%;color:white;font-size:20px;cursor:pointer}
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:1500;display:none}.overlay.active{display:block}
-.hero{min-height:100vh;display:flex;align-items:center;padding:110px 5% 60px;position:relative;overflow:hidden}
-.hero-bg{position:absolute;right:-5%;top:10%;width:55%;height:80%;background:radial-gradient(circle at center, #C6A15B22 0%, transparent 70%);border-radius:50%}
-.hero-content{width:52%;z-index:2}.badge{display:inline-flex;align-items:center;gap:8px;background:#1a3a1a;color:#C6A15B;padding:8px 16px;border-radius:100px;font-size:11px;letter-spacing:1.2px;font-weight:800;margin-bottom:20px}
-.hero h1{font-size:clamp(38px,5.5vw,68px);line-height:0.95;letter-spacing:-1.5px;margin-bottom:18px}.hero h1 i{font-weight:400;color:#C6A15B;font-style:italic}
-.hero p{font-size:17px;line-height:1.6;opacity:0.6;max-width:460px;margin-bottom:28px}.hero-btns{display:flex;gap:14px;flex-wrap:wrap}.btn-primary{background:#1a3a1a;color:white;padding:16px 32px;border-radius:100px;text-decoration:none;font-weight:700}.btn-secondary{background:white;border:1px solid #e5e5e5;padding:16px 32px;border-radius:100px;text-decoration:none;font-weight:700;color:#1a1a1a}
-.hero-image{width:44%;position:relative;z-index:2;display:flex;justify-content:center}.olive-card{background:white;border-radius:28px;padding:16px;box-shadow:0 30px 80px rgba(0,0,0,0.15);transform:rotate(-2deg);width:400px;max-width:100%}
-.olive-card img{width:100%;height:340px;object-fit:cover;border-radius:18px;background:#f5f1e8}.olive-card-info{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding:0 6px}
-section{padding:80px 5%}.section-title{text-align:center;margin-bottom:50px}.section-title h2{font-size:clamp(32px,4.5vw,52px)}
-#produits{background:#F6F3EB}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;max-width:1200px;margin:0 auto}
-.prod-card{background:white;border-radius:22px;padding:16px;transition:0.3s}.prod-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.08)}
-.prod-img{height:240px;background:#f9f6ef;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:70px;position:relative}.prod-img b{position:absolute;bottom:10px;right:10px;background:#1a3a1a;color:white;padding:5px 10px;border-radius:100px;font-size:11px}
-.prod-card h3{margin:16px 0 4px;font-size:18px}.prod-card p{opacity:0.5;font-size:13px;margin-bottom:12px}.prod-price{display:flex;justify-content:space-between;align-items:center}.prod-price strong{font-size:24px}.prod-price a{background:#1a3a1a;color:white;padding:9px 18px;border-radius:100px;text-decoration:none;font-size:13px;font-weight:700}
-#commande{background:#1a3a1a;color:white}.form-wrap{max-width:680px;margin:0 auto;background:white;border-radius:26px;padding:34px;color:#1a1a1a}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.input{padding:15px 18px;border-radius:12px;border:1.5px solid #e8e8e8;width:100%;font-size:14px}.full{grid-column:1/-1}.select{padding:15px 18px;border-radius:12px;border:1.5px solid #e8e8e8;width:100%;font-size:14px}
-.btn-submit{width:100%;background:#1a3a1a;color:white;border:none;padding:17px;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;margin-top:10px}
-.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;max-width:1100px;margin:0 auto;align-items:center}.map{height:420px;background:#eee;border-radius:22px;overflow:hidden}
-@media(max-width:900px){.hero{flex-direction:column;text-align:center}.hero-content,.hero-image{width:100%}.form-grid{grid-template-columns:1fr}.loc-grid{grid-template-columns:1fr}}
-.cart-btn{background:#1a2e1a;color:white;padding:10px 18px;border-radius:100px;border:none;cursor:pointer;font-weight:700;position:relative}
-.cart-count{position:absolute;top:-8px;right:-8px;background:#C6A15B;color:#1a2e1a;width:22px;height:22px;border-radius:50%;font-size:12px;display:flex;align-items:center;justify-content:center;font-weight:900}
-.cart-panel{position:fixed;top:0;right:-400px;width:380px;height:100vh;background:white;z-index:1000;box-shadow:-10px 0 40px rgba(0,0,0,0.2);transition:0.3s;padding:20px;display:flex;flex-direction:column}
+.cart-btn{position:relative;background:#1a3a1a;color:white;border:none;padding:10px 18px;border-radius:100px;cursor:pointer;font-weight:700}
+#cartCount{position:absolute;top:-6px;right:-6px;background:#C6A15B;color:#111;width:20px;height:20px;border-radius:50%;font-size:12px;display:flex;align-items:center;justify-content:center}
+/* CART */
+.cart-panel{position:fixed;top:0;right:-100%;width:400px;max-width:90vw;height:100vh;background:white;z-index:3000;transition:0.4s cubic-bezier(0.77,0,0.175,1);display:flex;flex-direction:column;box-shadow:-20px 0 60px rgba(0,0,0,0.15)}
 .cart-panel.open{right:0}
-.cart-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;border-bottom:1px solid #eee;padding-bottom:15px}
-.cart-items{flex:1;overflow-y:auto}
-.cart-item{display:flex;gap:10px;padding:12px 0;border-bottom:1px solid #f5f5f5;align-items:center}
-.cart-item img{width:50px;height:50px;object-fit:contain;background:#f9f6ef;border-radius:8px}
-.qty{display:flex;align-items:center;gap:8px;margin-top:5px}
-.qty button{width:26px;height:26px;border-radius:50%;border:1px solid #ddd;background:white;cursor:pointer}
-.cart-footer{border-top:2px solid #1a2e1a;padding-top:15px;background:#fdfbf7;margin:0 -20px;padding:20px}
-.row{display:flex;justify-content:space-between;margin:6px 0;font-size:14px}
-.row.total{font-weight:900;font-size:18px;margin-top:10px;border-top:1px dashed #ccc;padding-top:10px}
-.free-msg{background:#e6ffe6;color:#1a5d1a;padding:10px;border-radius:10px;font-size:12px;margin:10px 0;text-align:center;font-weight:700}
-.free-msg.no{background:#fff3e0;color:#8d4a00}
-.order-btn{width:100%;background:#25D366;color:white;padding:16px;border:none;border-radius:12px;font-weight:900;font-size:16px;cursor:pointer;margin-top:15px}
-.overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:999;display:none}.overlay.show{display:block}
-@media(max-width:500px){.cart-panel{width:100%;right:-100%}}
+#cartOverlay{position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:2500;display:none}.show{display:block!important}
+.cart-head{padding:20px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center}
+.cart-items{flex:1;overflow-y:auto;padding:20px}
+.cart-item{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid #f0f0f0;align-items:center}
+.cart-item img{width:60px;height:60px;object-fit:cover;border-radius:10px}
+.qty{display:flex;align-items:center;gap:8px;margin-top:6px}.qty button{width:28px;height:28px;border-radius:50%;border:1px solid #ddd;background:white;cursor:pointer}
+.cart-foot{padding:20px;border-top:1px solid #eee;background:#fafaf8}
+.free-msg{background:#e8f5e9;color:#2e7d32;padding:10px;border-radius:10px;font-size:13px;margin-bottom:12px;font-weight:700}
+.free-msg.no{background:#fff8e1;color:#f57f17}
+.order-btn{width:100%;background:#1a3a1a;color:white;border:none;padding:16px;border-radius:100px;font-weight:900;cursor:pointer;margin-top:12px}
+.input{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;margin-bottom:10px}
+/* HERO */
+.hero{height:95vh;background:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('hero.png');background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;text-align:center;color:white;padding:20px}
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px;padding:30px 5%}
+.prod-card{background:white;border-radius:20px;padding:14px;box-shadow:0 8px 30px rgba(0,0,0,0.06);text-align:center}
+.prod-card img{width:100%;height:160px;object-fit:contain}
 </style>
 </head>
 <body>
-<div class="overlay" id="cartOverlay" onclick="toggleCart()"></div>
+
+<nav>
+<div class="logo">Huilerie <span>Bouker</span></div>
+<div style="display:flex;gap:10px;align-items:center">
+<a href="#huilerie" style="text-decoration:none;color:#1a3a1a;font-weight:700;font-size:14px">Huilerie</a>
+<a href="#produits" style="text-decoration:none;color:#1a3a1a;font-weight:700;font-size:14px">Produits</a>
+<button class="cart-btn" onclick="toggleCart()">🛒 Panier <span id="cartCount">0</span></button>
+</div>
+</nav>
+
+<div id="cartOverlay" onclick="toggleCart()"></div>
 <div class="cart-panel" id="cartPanel">
-<div class="cart-header"><h3>🛒 Panier</h3><button onclick="toggleCart()" style="border:none;background:none;font-size:22px;cursor:pointer">✕</button></div>
+<div class="cart-head"><b>Votre Panier</b><button onclick="toggleCart()" style="border:none;background:none;font-size:22px;cursor:pointer">✕</button></div>
 <div class="cart-items" id="cartItems"><p style="text-align:center;opacity:0.5;margin-top:50px">Panier vide</p></div>
-<div class="cart-footer">
-<div class="row"><span>Sous-total:</span><span id="subtotal">0 DT</span></div>
-<div class="row"><span>Livraison:</span><span id="delivery">8 DT</span></div>
+<div class="cart-foot">
 <div id="freeMsg"></div>
-<div class="row total"><span>Total:</span><span id="total">0 DT</span></div>
-<input id="clientName" placeholder="Nom *" style="width:100%;padding:12px;border-radius:10px;border:1px solid #ddd;margin-top:15px">
-<input id="clientTel" placeholder="Tel *" style="width:100%;padding:12px;border-radius:10px;border:1px solid #ddd;margin-top:8px">
-<input id="clientAdr" placeholder="Adresse" style="width:100%;padding:12px;border-radius:10px;border:1px solid #ddd;margin-top:8px">
-<button class="order-btn" onclick="orderWhatsApp()">Commander WhatsApp →</button>
-</div></div>
-<nav><div class="logo">Huilerie <span>BOUKER</span></div><div style="display:flex;gap:10px;align-items:center"><button class="cart-btn" onclick="toggleCart()">🛒 <span class="cart-count" id="cartCount">0</span></button><button class="menu-btn" onclick="openMenu()"><span></span><span></span><span></span></button></div></nav>
- <!-- HERO SECTION JDIDA -->
-<section style="height:90vh; background:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('hero.jpg'); background-size:cover; background-position:center; display:flex; align-items:center; justify-content:center; text-align:center; color:white; padding:20px">
+<div style="display:flex;justify-content:space-between"><span>Sous-total</span><b id="subtotal">0 DT</b></div>
+<div style="display:flex;justify-content:space-between;margin-top:6px"><span>Livraison</span><b id="delivery">8 DT</b></div>
+<div style="display:flex;justify-content:space-between;margin-top:10px;font-size:18px;border-top:1px dashed #ddd;padding-top:10px"><span>TOTAL</span><b id="total">0 DT</b></div>
+<input id="clientName" class="input" placeholder="Nom et prénom *">
+<input id="clientTel" class="input" placeholder="Téléphone *">
+<input id="clientAdr" class="input" placeholder="Adresse">
+<button class="order-btn" onclick="orderWhatsApp()">Commander via WhatsApp</button>
+</div>
+</div>
+
+<!-- HERO JDID -->
+<section class="hero">
 <div>
-<img src="logo-rond.png" style="width:140px; background:white; border-radius:50%; padding:10px; margin-bottom:20px">
-<h1 style="font-size:48px; font-weight:900; line-height:1.1">L'OR VERT DE <br><span style="color:#C6A15B">KSOUR ESSEF</span></h1>
-<p style="margin:20px auto; max-width:600px; font-size:18px; opacity:0.9">Huile d'olive extra vierge, extrait à froid, de nos oliviers à votre table depuis 3 générations.</p>
-<a href="#produits" style="background:#C6A15B; color:#111; padding:14px 30px; border-radius:100px; text-decoration:none; font-weight:900; display:inline-block; margin-top:10px">Découvrir nos huiles →</a>
+<img src="rond.png" style="width:140px;background:white;border-radius:50%;padding:10px;margin-bottom:20px">
+<h1 style="font-size:clamp(32px,5vw,52px);line-height:0.95">L'OR VERT DE<br><span style="color:#C6A15B">KSOUR ESSEF</span></h1>
+<p style="margin:20px auto;max-width:600px;font-size:18px;opacity:0.9">Huile d'olive extra vierge, extrait à froid, de nos oliviers à votre table depuis 3 générations.</p>
+<a href="#produits" style="background:#C6A15B;color:#111;padding:14px 30px;border-radius:100px;text-decoration:none;font-weight:900;display:inline-block;margin-top:10px">Découvrir nos huiles →</a>
 </div>
 </section>
 
-<!-- NOTRE HISTOIRE -->
-<section id="huilerie" style="padding:80px 5%; background:#FFFEF8; display:flex; flex-wrap:wrap; gap:40px; align-items:center">
-<div style="flex:1; min-width:300px">
-<h2 style="font-size:36px; color:#1a2e1a">Huilerie Bouker,<br>Une histoire de famille</h2>
-<p style="margin-top:15px; line-height:1.7; color:#444">Au cœur de Mahdia, nous cultivons et pressons nos olives avec passion. Pas d'intermédiaire, pas de mélange. Juste l'olive, la pierre, et le savoir-faire Tunisien authentique.</p>
-<div style="display:flex; gap:20px; margin-top:25px">
-<div><b style="font-size:24px; color:#C6A15B">100%</b><br><small>Naturelle</small></div>
-<div><b style="font-size:24px; color:#C6A15B">À Froid</b><br><small>Extraction</small></div>
-<div><b style="font-size:24px; color:#C6A15B">1950</b><br><small>Depuis</small></div>
+<!-- HISTOIRE -->
+<section id="huilerie" style="padding:80px 5%;background:#FFFEF8;display:flex;flex-wrap:wrap;gap:40px;align-items:center">
+<div style="flex:1;min-width:300px">
+<h2 style="font-size:36px;color:#1a3a1a">Huilerie Bouker,<br>Une histoire de famille</h2>
+<p style="margin-top:15px;line-height:1.7;color:#444">Au cœur de Mahdia, nous cultivons et pressons nos olives avec passion. Pas d'intermédiaire, pas de mélange. Juste l'olive, la pierre, et le savoir-faire Tunisien authentique.</p>
+<div style="display:flex;gap:20px;margin-top:25px"><div><b style="font-size:24px;color:#C6A15B">100%</b><br><small>Naturelle</small></div><div><b style="font-size:24px;color:#C6A15B">À Froid</b><br><small>Extraction</small></div><div><b style="font-size:24px;color:#C6A15B">1950</b><br><small>Depuis</small></div></div>
 </div>
-</div>
-<div style="flex:1; min-width:300px">
-<img src="expo.png" style="width:100%; border-radius:20px; box-shadow:0 20px 40px rgba(0,0,0,0.15)">
-<p style="text-align:center; margin-top:10px; font-size:13px; opacity:0.6">Présent au Salon International - Tunisie à l'honneur 🇹🇳</p>
+<div style="flex:1;min-width:300px">
+<img src="expo.png" style="width:100%;border-radius:20px;box-shadow:0 20px 40px rgba(0,0,0,0.15)">
+<p style="text-align:center;margin-top:10px;font-size:13px;opacity:0.6">Présent au Salon International - Tunisie à l'honneur 🇹🇳</p>
 </div>
 </section>
 
-<!-- PROCESS / QUALITE -->
-<section style="padding:60px 5%; background:#1a2e1a; color:white; text-align:center">
+<!-- PROCESS -->
+<section style="padding:60px 5%;background:#1a3a1a;color:white;text-align:center">
 <h2 style="font-size:32px">De l'arbre à la bouteille</h2>
-<p style="opacity:0.7; margin-top:10px">Qualité contrôlée à chaque étape</p>
-<img src="process.jpg" style="width:100%; max-width:900px; border-radius:20px; margin-top:30px">
+<p style="opacity:0.7;margin-top:10px">Qualité contrôlée à chaque étape</p>
+<img src="hero.png" style="width:100%;max-width:700px;border-radius:20px;margin-top:30px;object-fit:cover;height:400px">
 </section>
 
-<!-- PRODUIT PHARE 3L -->
-<section style="padding:80px 5%; display:flex; flex-wrap:wrap; gap:40px; align-items:center; background:white">
-<div style="flex:1; min-width:300px"><img src="bidon-3l.jpg" style="width:100%; border-radius:20px"></div>
-<div style="flex:1; min-width:300px">
-<h2 style="font-size:32px; color:#1a2e1a">Notre Best-Seller 3 Litres</h2>
-<p style="margin:15px 0; color:#555; line-height:1.6">Le format familial idéal. Conservation parfaite dans son bidon métal premium qui protège de la lumière. Goût fruité, légèrement poivré.</p>
+<!-- BEST SELLER 3L -->
+<section style="padding:80px 5%;display:flex;flex-wrap:wrap;gap:40px;align-items:center;background:white">
+<div style="flex:1;min-width:300px"><img src="bidon.png" style="width:100%;border-radius:20px"></div>
+<div style="flex:1;min-width:300px">
+<h2 style="font-size:32px;color:#1a3a1a">Notre Best-Seller 3 Litres</h2>
+<p style="margin:15px 0;color:#555;line-height:1.6">Le format familial idéal. Conservation parfaite dans son bidon métal premium qui protège de la lumière. Goût fruité, légèrement poivré.</p>
 <b style="font-size:28px">48 DT Seulement</b><br>
-<button onclick="addToCart('Bidon 3L',48,'bidon-3l.jpg')" style="margin-top:15px; background:#C6A15B; color:#111; border:none; padding:14px 30px; border-radius:100px; font-weight:900; cursor:pointer">+ Ajouter au panier</button>
+<button onclick="addToCart('Bidon 3L',48,'bidon.png')" style="margin-top:15px;background:#C6A15B;color:#111;border:none;padding:14px 30px;border-radius:100px;font-weight:900;cursor:pointer">+ Ajouter au panier</button>
 </div>
 </section>
-<div class="overlay" id="overlay" onclick="closeMenu()"></div>
-<div class="side-menu" id="sideMenu"><button class="close" onclick="closeMenu()">✕</button>
-<a href="#home" onclick="closeMenu()" class="active">Accueil</a><a href="#produits" onclick="closeMenu()">Produits</a><a href="#commande" onclick="closeMenu()">Commander</a><a href="#localisation" onclick="closeMenu()">Huilerie C82</a>
-<div style="margin-top:30px;display:flex;flex-direction:column;gap:10px">
-<a href="tel:+21628693560" style="background:white;color:#1a3a1a;padding:14px;border-radius:100px;text-align:center;font-size:14px;font-weight:800">📞 54 514 651 - 28 693 560</a>
-<a href="https://api.whatsapp.com/send?phone=21628693560" target="_blank" style="background:#C6A15B;color:#1a3a1a;padding:14px;border-radius:100px;text-align:center;font-size:14px;font-weight:800">WhatsApp 28 693 560 - 54 514 651</a>
-</div></div>
 
-<section class="hero" id="home"><div class="hero-bg"></div>
-<div class="hero-content"><div class="badge">🟢 OUVERT 24H/24 • 4,2 ⭐ • C82 92W4+FV</div>
-<h1>Huilerie Bouker <i>Huile Bio</i> 100% Naturelle.</h1>
-<p>huilere a Ksour Essef - Route Chebba C82. 92W4+FV. Pression à froid, extra vierge. Ouvert 24h/24.</p>
-<div class="hero-btns"><a href="#produits" class="btn-primary">Voir Nos Produits →</a><a href="#localisation" class="btn-secondary">Voir Le Huilerie</a></div>
+<!-- PRODUITS -->
+<section id="produits" style="background:#f7f5ee;padding:60px 0">
+<h2 style="text-align:center;font-size:36px;color:#1a3a1a">Nos Huiles d'Exception</h2>
+<div class="prod-grid">
+<div class="prod-card"><img src="1L.png"><h3>1 Litre</h3><p>16 DT</p><button onclick="addToCart('1L',16,'1L.png')" style="background:#1a3a1a;color:white;padding:8px 14px;border-radius:20px;border:none;cursor:pointer;margin-top:8px">+ Ajouter</button></div>
+<div class="prod-card"><img src="2L.png"><h3>2 Litres</h3><p>32 DT</p><button onclick="addToCart('2L',32,'2L.png')" style="background:#1a3a1a;color:white;padding:8px 14px;border-radius:20px;border:none;cursor:pointer;margin-top:8px">+ Ajouter</button></div>
+<div class="prod-card"><img src="5L.png"><h3>5 Litres</h3><p>80 DT</p><button onclick="addToCart('5L',80,'5L.png')" style="background:#C6A15B;color:#111;padding:8px 14px;border-radius:20px;border:none;cursor:pointer;font-weight:900;margin-top:8px">+ Ajouter</button></div>
+<div class="prod-card"><img src="10L.png"><h3>10 Litres</h3><p>160 DT</p><button onclick="addToCart('10L',160,'10L.png')" style="background:#1a3a1a;color:white;padding:8px 14px;border-radius:20px;border:none;cursor:pointer;margin-top:8px">+ Ajouter</button></div>
+<div class="prod-card"><img src="20L.png"><h3>20 Litres</h3><p>320 DT</p><button onclick="addToCart('20L',320,'20L.png')" style="background:#1a3a1a;color:white;padding:8px 14px;border-radius:20px;border:none;cursor:pointer;margin-top:8px">+ Ajouter</button></div>
+<div class="prod-card"><img src="50L.png"><h3>50 Litres</h3><p>800 DT</p><button onclick="addToCart('50L',800,'50L.png')" style="background:#1a3a1a;color:white;padding:8px 14px;border-radius:20px;border:none;cursor:pointer;margin-top:8px">+ Ajouter</button></div>
 </div>
-<div class="hero-image"><div class="olive-card"><img src="Logo1.jpg" alt="Huile Bouker"><div class="olive-card-info"><div><h3>Huile Bouker Bio</h3><p style="opacity:0.5;font-size:12px">C82 • Ouvert 24h</p></div><b style="background:#1a3a1a;color:white;padding:8px 14px;border-radius:100px;font-size:14px">1L/2L/5L/10L/20L/50L</b></div></div></div>
 </section>
-
-<section id="produits"><div class="section-title"><h2>Nos Bidons - 16 DT / Litre Fixe</h2><p>Bidons alimentaires neufs • Scellés • Exellente Qualité Bio</p></div>
-<div class="grid">
-<div class="prod-card"><div class="prod-img"><img src="1L.png" style="width:100%;height:100%;object-fit:contain;padding:10px"><b>1 L</b></div><h3>1 Litre</h3><p>Découverte</p><div class="prod-price"><strong>16 DT</strong><a href="#commande">Commander<button onclick="addToCart('1L',16,'1L.png')" style="background:#1a2e1a;color:white;padding:8px 14px;border-radius:20px;border:none;cursor:pointer">+ Ajouter</button></a></div></div>
-<div class="prod-card"><div class="prod-img"><img src="2L.png" style="width:100%;height:100%;object-fit:contain;padding:10px"><b>2 L</b></div><h3>2 Litres</h3><p>Couple</p><div class="prod-price"><strong>32 DT</strong><a href="#commande">Commander<button onclick="addToCart('2L',32,'2L.png')" style="background:#1a2e1a;color:white;padding:8px 14px;border-radius:20px;border:none;cursor:pointer">+ Ajouter</button></a></div></div>
-<div class="prod-card" style="border:2px solid #C6A15B"><div class="prod-img"><img src="5L.png" style="width:100%;height:100%;object-fit:contain;padding:10px"><b>BEST</b></div><h3>5 Litres - Best Seller</h3><p>Le plus demandé</p><div class="prod-price"><strong>80 DT</strong><a href="#commande">Commander<button onclick="addToCart('5L',80,'5L.png')" style="background:#C6A15B;color:#1a2e1a;padding:8px 14px;border-radius:20px;border:none;cursor:pointer;font-weight:900">+ Ajouter</button></a></div></div>
-<div class="prod-card"><div class="prod-img"><img src="10L.png" style="width:100%;height:100%;object-fit:contain;padding:10px"><b>10 L</b></div><h3>10 Litres</h3><p>Famille</p><div class="prod-price"><strong>160 DT</strong><a href="#commande">Commander<button onclick="addToCart('10L',160,'10L.png')" style="background:#1a2e1a;color:white;padding:8px 14px;border-radius:20px;border:none;cursor:pointer">+ Ajouter</button></a></div></div>
-<div class="prod-card"><div class="prod-img"><img src="20L.png" style="width:100%;height:100%;object-fit:contain;padding:10px"><b>20 L</b></div><h3>20 Litres</h3><p>Grande famille</p><div class="prod-price"><strong>320 DT</strong><a href="#commande">Commander<button onclick="addToCart('20L',320,'20L.png')" style="background:#1a2e1a;color:white;padding:8px 14px;border-radius:20px;border:none;cursor:pointer">+ Ajouter</button></a></div></div>
-<div class="prod-card"><div class="prod-img"><img src="50L.png" style="width:100%;height:100%;object-fit:contain;padding:10px"><b>50 L</b></div><h3>50 Litres Pro</h3><p>Restaurant</p><div class="prod-price"><strong>800 DT</strong><a href="#commande">Commander<button onclick="addToCart('50L',800,'50L.png')" style="background:#1a2e1a;color:white;padding:8px 14px;border-radius:20px;border:none;cursor:pointer">+ Ajouter</button></a></div></div>
-</div>
-
-<section id="commande"><div class="section-title" style="color:white"><h2 style="color:white">Commander - Livraison 24h</h2><p style="color:rgba(255,255,255,0.6)">On t'appelle en 54 514 651 et 28 693 560</p></div>
-<div class="form-wrap"><h3 style="font-size:28px">Formulaire de Commande</h3><p style="opacity:0.6;margin-bottom:20px;font-size:13px">Paiement à la livraison • Ouvert 24h/24</p>
-<form onsubmit="sendOrder(event)"><div class="form-grid">
-<input class="input" id="nom" placeholder="Nom et prénom *" required>
-<input class="input" id="tel" placeholder="Téléphone *" required>
-<input class="input full" id="adresse" placeholder="Adresse complète *" required>
-<select class="select" id="produit" required><option value="">Choisir le produit *</option><option>1L - 16DT</option><option>2L - 32DT</option><option>5L - 80DT</option><option>10L - 160DT</option><option>20L - 320DT</option><option>50L - 800DT</option></select>
-<select class="select" id="qte"><option value="1">Qté: 1</option><option value="2">2</option><option value="3">3</option></select>
-<textarea class="input full" id="note" rows="3" placeholder="Note optionnelle"></textarea>
-</div><button class="btn-submit" type="submit">Envoyer sur WhatsApp 28 693 560 - 54 514 651 →</button></form></div></section>
-
-<section id="localisation"><div class="loc-grid"><div>
-<h2 style="font-size:42px;line-height:1;margin-bottom:16px">Huilerie à <br><i style="font-weight:400;color:#C6A15B">Ksour Essef C82</i></h2>
-<p style="opacity:0.6;line-height:1.6;margin-bottom:20px">C82, code Plus: <b>92W4+FV Ksour Essef</b>. Ouvert 24h/24.</p>
-<div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px">
-<div style="display:flex;gap:10px;align-items:center"><div style="width:38px;height:38px;background:#F6F3EB;border-radius:50%;display:flex;align-items:center;justify-content:center">📍</div><div><b>C82, Route Chebba</b><br><span style="opacity:0.6;font-size:13px">92W4+FV Ksour Essef - Mahdia</span></div></div>
-<div style="display:flex;gap:10px;align-items:center"><div style="width:38px;height:38px;background:#F6F3EB;border-radius:50%;display:flex;align-items:center;justify-content:center">🕒</div><div><b>Ouvert 24h/24</b><br><span style="opacity:0.6;font-size:13px">7j/7 - 4,2 ⭐</span></div></div>
-<div style="display:flex;gap:10px;align-items:center"><div style="width:38px;height:38px;background:#F6F3EB;border-radius:50%;display:flex;align-items:center;justify-content:center">📞</div><div><b>28 693 560 / 54 514 651</b></div></div>
-</div>
-<div style="display:flex;gap:10px;flex-wrap:wrap"><a href="https://www.google.com/maps/search/?api=1&query=92W4%2BFV+Ksour+Essef" target="_blank" style="background:#1a3a1a;color:white;padding:12px 22px;border-radius:100px;text-decoration:none;font-weight:700;font-size:13px">📍 GPS Maasra</a><a href="tel:+21628693560" style="background:white;border:1px solid #ddd;padding:12px 22px;border-radius:100px;text-decoration:none;font-weight:700;color:#1a1a1a;font-size:13px">📞 Appeler 28 693 560</a></div>
-</div>
-<div class="map"><iframe src="https://www.google.com/maps?q=92W4%2BFV+Ksour+Essef&z=16&output=embed" width="100%" height="100%" style="border:0" loading="lazy"></iframe></div>
-</div></section>
-
-<footer style="background:#111;padding:32px 5%;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;color:rgba(255,255,255,0.6);font-size:13px"><div><b style="color:white">MAASRA BOUKER - C82 KSOUR ESSEF</b><br>92W4+FV • Ouvert 24h/24 • © 2026</div><div>📞 28 693 560 / 54 514 651<br>📍 C82 Route Chebba - Mahdia</div></footer>
 
 <script>
-function openMenu(){document.getElementById('sideMenu').classList.add('active');document.getElementById('overlay').classList.add('active')}
-function closeMenu(){document.getElementById('sideMenu').classList.remove('active');document.getElementById('overlay').classList.remove('active')}
-function selectProd(v){document.getElementById('produit').value=v;document.getElementById('commande').scrollIntoView({behavior:'smooth'})}
-function sendOrder(e){
- e.preventDefault();
- let nom=document.getElementById('nom').value;
- let tel=document.getElementById('tel').value;
- let adresse=document.getElementById('adresse').value;
- let produit=document.getElementById('produit').value;
- let qte=document.getElementById('qte').value;
- let note=document.getElementById('note').value;
- let msg=`Salam Huilerie Bouker!%0A📦 COMMANDE:%0A👤 Nom: ${nom}%0A📞 Tel: ${tel}%0A📍 Adresse: ${adresse}%0A🫒 Produit: ${produit}%0A🔢 Quantite: ${qte}%0A📝 Note: ${note}`;
- window.open(`https://api.whatsapp.com/send?phone=21628693560&text=${msg}`,'_blank');
-}
-
 let cart=[];
 function toggleCart(){document.getElementById('cartPanel').classList.toggle('open');document.getElementById('cartOverlay').classList.toggle('show')}
 function addToCart(name,price,img){let f=cart.find(i=>i.name===name);if(f){f.qty++}else{cart.push({name,price,img,qty:1})}updateCart();document.getElementById('cartPanel').classList.add('open');document.getElementById('cartOverlay').classList.add('show')}
@@ -188,7 +123,7 @@ let count=cart.reduce((s,i)=>s+i.qty,0);document.getElementById('cartCount').inn
 let itemsDiv=document.getElementById('cartItems');
 if(cart.length===0){itemsDiv.innerHTML='<p style="text-align:center;opacity:0.5;margin-top:50px">Panier vide</p>';document.getElementById('subtotal').innerText='0 DT';document.getElementById('total').innerText='0 DT';document.getElementById('delivery').innerText='8 DT';document.getElementById('freeMsg').innerHTML='';return}
 let subtotal=cart.reduce((s,i)=>s+i.price*i.qty,0);let delivery=subtotal>=400?0:8;let total=subtotal+delivery;
-let html='';cart.forEach(i=>{html+=`<div class="cart-item"><img src="${i.img}"><div style="flex:1"><b>${i.name} - ${i.price} DT</b><br>${i.price*i.qty} DT<div class="qty"><button onclick="changeQty('${i.name}',-1)">-</button><span>${i.qty}</span><button onclick="changeQty('${i.name}',1)">+</button></div></div><button onclick="changeQty('${i.name}',-100)" style="border:none;background:none">🗑️</button></div>`});
+let html='';cart.forEach(i=>{html+=`<div class="cart-item"><img src="${i.img}"><div style="flex:1"><b>${i.name} - ${i.price} DT</b><br>${i.price*i.qty} DT<div class="qty"><button onclick="changeQty('${i.name}',-1)">-</button><span>${i.qty}</span><button onclick="changeQty('${i.name}',1)">+</button></div></div><button onclick="changeQty('${i.name}',-100)" style="border:none;background:none;cursor:pointer">🗑️</button></div>`});
 itemsDiv.innerHTML=html;
 document.getElementById('subtotal').innerText=subtotal+' DT';
 document.getElementById('delivery').innerText=delivery===0?'GRATUIT 🎉':delivery+' DT';
@@ -208,4 +143,4 @@ window.open(`https://api.whatsapp.com/send?phone=21628693560&text=${msg}`,'_blan
 }
 </script>
 </body>
-</htm
+</html>

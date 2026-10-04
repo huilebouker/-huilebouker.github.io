@@ -46,6 +46,7 @@ nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(255,254,249,0.9
 <input id="clientName" class="input" placeholder="Nom et prénom *">
 <input id="clientTel" class="input" placeholder="Téléphone *">
 <input id="clientAdr" class="input" placeholder="Adresse">
+<button type="button" id="locBtn" onclick="getLocation()" style="background:#25D366;color:white;border:none;padding:8px 12px;border-radius:6px;margin:5px 0">📍 Envoyer ma position GPS</button>
 <div class="paybox">
 <p style="font-weight:700;margin-bottom:8px">Méthode de paiement:</p>
 <label style="display:flex;gap:8px;margin-bottom:8px;cursor:pointer"><input type="radio" name="pay" value="livraison" checked> 💵 Paiement à la livraison</label>
@@ -67,7 +68,18 @@ function addToCart(name,price,img){let f=cart.find(i=>i.name===name);if(f){f.qty
 function changeQty(name,d){let f=cart.find(i=>i.name===name);if(!f)return;f.qty+=d;if(f.qty<=0){cart=cart.filter(i=>i.name!==name)}updateCart()}
 function updateCart(){let count=cart.reduce((s,i)=>s+i.qty,0);document.getElementById('cartCount').innerText=count;let itemsDiv=document.getElementById('cartItems');if(cart.length===0){itemsDiv.innerHTML='<p style="text-align:center;opacity:0.5;margin-top:50px">Panier vide</p>';document.getElementById('subtotal').innerText='0 DT';document.getElementById('total').innerText='0 DT';document.getElementById('delivery').innerText='8 DT';document.getElementById('freeMsg').innerHTML='';return}let subtotal=cart.reduce((s,i)=>s+i.price*i.qty,0);let delivery=subtotal>=400?0:8;let total=subtotal+delivery;let html='';cart.forEach(i=>{html+=`<div class="cart-item"><img src="${i.img}"><div style="flex:1"><b>${i.name} - ${i.price} DT</b><br>${i.price*i.qty} DT<div class="qty"><button onclick="changeQty('${i.name}',-1)">-</button><span>${i.qty}</span><button onclick="changeQty('${i.name}',1)">+</button></div></div><button onclick="changeQty('${i.name}',-100)" style="border:none;background:none;cursor:pointer">🗑️</button></div>`});itemsDiv.innerHTML=html;document.getElementById('subtotal').innerText=subtotal+' DT';document.getElementById('delivery').innerText=delivery===0?'GRATUIT 🎉':delivery+' DT';document.getElementById('total').innerText=total+' DT';let freeDiv=document.getElementById('freeMsg');if(subtotal>=400){freeDiv.innerHTML='<div class="free-msg ok">🎉 Livraison GRATUITE! -8 DT</div>'}else{let rest=400-subtotal;freeDiv.innerHTML=`<div class="free-msg no">💡 +${rest} DT = livraison gratuite!</div>`}}
 document.querySelectorAll('input[name="pay"]').forEach(r=>{r.addEventListener('change',()=>{document.getElementById('cardInfo').style.display=document.querySelector('input[name="pay"]:checked').value==='carte'?'block':'none'})});
-async function orderWhatsApp(){
+let clientLocation = "";
+
+function getLocation(){
+ if(navigator.geolocation){
+   navigator.geolocation.getCurrentPosition(pos=>{
+     clientLocation = `https://www.google.com/maps?q=${pos.coords.latitude},${pos.coords.longitude}`;
+     alert("📍 Localisation ajoutée!");
+     document.getElementById('locBtn').innerText = "✅ Position ajoutée";
+   }, ()=>{ alert("Activez GPS!"); });
+ } else { alert("GPS non supporté"); }
+}
+ async function orderWhatsApp(){
  if(cart.length===0){alert('Panier vide!');return}
  let name=document.getElementById('clientName').value;
  let tel=document.getElementById('clientTel').value;
@@ -80,7 +92,7 @@ async function orderWhatsApp(){
 
  if(payMethod==='livraison'){
    let detail=cart.map(i=>`${i.qty}x ${i.name} = ${i.price*i.qty} DT`).join('%0A');
-   let msg=`Salam Huilerie Bouker%0A%0A${detail}%0A%0ATOTAL: ${total} DT%0APaiement: A la livraison%0A%0ANom: ${name}%0ATel: ${tel}%0AAdresse: ${adr}`;
+   let msg=`Aslema Huilerie Bouker%0A%0A${detail}%0A%0ATOTAL: ${total} DT%0APaiement: A la livraison%0A%0ANom: ${name}%0ATel: ${tel}%0AAdresse: ${adr}%0ALocalisation: ${clientLocation}`;
    window.open(`https://api.whatsapp.com/send?phone=21628693560&text=${msg}`,'_blank');
    return;
  }

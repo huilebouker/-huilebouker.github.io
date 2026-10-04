@@ -1,124 +1,53 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Huilerie Bouker | Huile d'olive BIO Extra Vierge - Ksour Essef</title>
-<meta name="description" content="Huilerie Bouker Ksour Essef - Huile d'olive extra vierge BIO 100% naturelle. 1L 2L 5L 10L 20L 50L. Livraison partout en Tunisie. Depuis 3 générations.">
-<meta name="keywords" content="huile olive bouker, ksour essef, mahdia, huile bio tunisie, extra vierge, huilebouker.tn">
-<link rel="canonical" href="https://huilebouker.tn/">
-<meta property="og:title" content="Huilerie Bouker - L'Or Vert de Ksour Essef">
-<meta property="og:description" content="Huile d'olive BIO depuis 3 générations - Extra Vierge, 100% Naturelle">
-<meta property="og:image" content="https://huilebouker.tn/hero.png">
-<meta property="og:url" content="https://huilebouker.tn/">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Store","name":"Huilerie Bouker","image":"https://huilebouker.tn/hero.png","address":{"@type":"PostalAddress","addressLocality":"Ksour Essef","addressRegion":"Mahdia","addressCountry":"TN"},"telephone":"+21628693560","url":"https://huilebouker.tn"}</script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Huilerie Bouker</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',sans-serif;background:#FFFEF9;color:#1a1a1a}
-h1,h2{font-family:'Playfair Display',serif}
-nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(255,254,249,0.95);backdrop-filter:blur(20px);border-bottom:1px solid #eee;padding:14px 5%;display:flex;justify-content:space-between;align-items:center}
-.logo{font-family:'Playfair Display';font-weight:900;font-size:20px;color:#1a3a1a}.logo span{color:#C6A15B}
-.cart-btn{position:relative;background:#1a3a1a;color:white;border:none;padding:10px 18px;border-radius:100px;cursor:pointer;font-weight:700}
-#cartCount{position:absolute;top:-6px;right:-6px;background:#C6A15B;color:#111;width:20px;height:20px;border-radius:50%;font-size:12px;display:flex;align-items:center;justify-content:center}
-.cart-panel{position:fixed;top:0;right:-100%;width:400px;max-width:92vw;height:100vh;background:white;z-index:3000;transition:0.4s;display:flex;flex-direction:column;box-shadow:-20px 0 60px rgba(0,0,0,0.15)}.cart-panel.open{right:0}
-#cartOverlay{position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:2500;display:none}.show{display:block!important}
-.cart-head{padding:20px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center}
-.cart-items{flex:1;overflow-y:auto;padding:20px}.cart-item{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid #f0f0f0;align-items:center}.cart-item img{width:60px;height:60px;object-fit:contain;border-radius:10px;background:#f7f5ee}
-.qty{display:flex;align-items:center;gap:8px;margin-top:6px}.qty button{width:28px;height:28px;border-radius:50%;border:1px solid #ddd;background:white;cursor:pointer}
-.cart-foot{padding:20px;border-top:1px solid #eee;background:#fafaf8}.free-msg{padding:10px;border-radius:10px;font-size:13px;margin-bottom:12px;font-weight:700}.ok{background:#e8f5e9;color:#2e7d32}.no{background:#fff8e1;color:#f57f17}
-.order-btn{width:100%;background:#1a3a1a;color:white;border:none;padding:16px;border-radius:100px;font-weight:900;cursor:pointer;margin-top:12px}.input{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;margin-bottom:10px}
-.hero{height:95vh;background:linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.6)), url('hero.png');background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;text-align:center;color:white;padding:20px;margin-top:60px}
-.prod-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;padding:30px 5%}.prod-card{background:white;border-radius:20px;padding:14px;box-shadow:0 8px 30px rgba(0,0,0,0.06);text-align:center}.prod-card img{width:100%;height:160px;object-fit:contain}
-.badge-logo{width:28px;height:28px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:8px}
-.paybox{margin:15px 0;padding:12px;background:#f9f9f9;border-radius:12px;border:1px solid #eee}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:system-ui;background:#fdfcf6}
+header{background:#2d4a22;color:#fff;padding:15px;text-align:center;position:sticky;top:0}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;padding:12px}
+.card{background:#fff;border-radius:10px;padding:10px;box-shadow:0 2px 6px #0001;text-align:center}
+.card img{width:100%;height:120px;object-fit:cover;border-radius:8px}
+.card button{background:#2d4a22;color:#fff;border:0;padding:7px 12px;border-radius:20px;width:100%;margin-top:6px;cursor:pointer}
+.cart,.form{background:#fff;margin:12px;border-radius:12px;padding:14px;box-shadow:0 2px 6px #0001}
+.cart-item{display:flex;justify-content:space-between;font-size:14px;margin:5px 0}
+.total{font-weight:bold;border-top:1px solid #eee;margin-top:8px;padding-top:8px;display:flex;justify-content:space-between}
+input{width:100%;padding:10px;margin:6px 0;border:1px solid #ddd;border-radius:8px}
+.pay label{display:flex;gap:8px;padding:10px;border:1px solid #ddd;border-radius:8px;margin:6px 0}
+.pay label:has(input:checked){border-color:#2d4a22;background:#f0f7ed}
+#locBtn{background:#25D366;color:#fff;border:0;padding:10px;border-radius:8px;width:100%;margin:6px 0;cursor:pointer;font-weight:700}
+#orderBtn{background:#2d4a22;color:#fff;border:0;padding:14px;border-radius:10px;width:100%;font-size:16px;font-weight:700;cursor:pointer}
 </style>
 </head>
 <body>
-<nav><div class="logo">Huilerie <span>BOUKER</span></div><div style="display:flex;gap:12px;align-items:center"><a href="#huilerie" style="text-decoration:none;color:#1a3a1a;font-weight:700;font-size:14px">Huilerie</a><a href="#produits" style="text-decoration:none;color:#1a3a1a;font-weight:700;font-size:14px">Produits</a><button class="cart-btn" onclick="toggleCart()">🛒 <span id="cartCount">0</span></button></div></nav>
-<div id="cartOverlay" onclick="toggleCart()"></div>
-<div class="cart-panel" id="cartPanel">
-<div class="cart-head"><b>Votre Panier</b><button onclick="toggleCart()" style="border:none;background:none;font-size:22px;cursor:pointer">✕</button></div>
-<div class="cart-items" id="cartItems"><p style="text-align:center;opacity:0.5;margin-top:50px">Panier vide</p></div>
-<div class="cart-foot">
-<div id="freeMsg"></div>
-<div style="display:flex;justify-content:space-between"><span>Sous-total</span><b id="subtotal">0 DT</b></div>
-<div style="display:flex;justify-content:space-between;margin-top:6px"><span>Livraison</span><b id="delivery">8 DT</b></div>
-<div style="display:flex;justify-content:space-between;margin-top:10px;font-size:18px;border-top:1px dashed #ddd;padding-top:10px"><span>TOTAL</span><b id="total">0 DT</b></div>
-<input id="clientName" class="input" placeholder="Nom et prénom *">
-<input id="clientTel" class="input" placeholder="Téléphone *">
-<input id="clientAdr" class="input" placeholder="Adresse">
-<button type="button" id="locBtn" onclick="getLocation()" style="background:#25D366;color:white;border:none;padding:8px 12px;border-radius:6px;margin:5px 0">📍 Envoyer ma position GPS</button>
-<div class="paybox">
-<p style="font-weight:700;margin-bottom:8px">Méthode de paiement:</p>
-<label style="display:flex;gap:8px;margin-bottom:8px;cursor:pointer"><input type="radio" name="pay" value="livraison" checked> 💵 Paiement à la livraison</label>
-<label style="display:flex;gap:8px;cursor:pointer"><input type="radio" name="pay" value="carte"> 💳 Paiement par carte (Visa, Mastercard, Flouci, e-DINAR, D17...)</label>
-<div id="cardInfo" style="display:none"></div>
+<header><h1>🌿 Huilerie Bouker</h1><div style="font-size:13px">Huile d'Olive Extra Vierge - El Djem</div></header>
+<div class="products" id="products"></div>
+<div class="cart"><h2>🛒 Panier</h2><div id="cartItems">Vide</div><div class="total"><span>Total</span><span id="cartTotal">0 DT</span></div><div id="deliveryInfo" style="font-size:12px;color:#666"></div></div>
+<div class="form">
+<h2>📦 Client</h2>
+<input id="clientName" placeholder="Nom *">
+<input id="clientTel" placeholder="Tel *">
+<input id="clientAdr" placeholder="Adresse *">
+<button id="locBtn" onclick="getLocation()">📍 Partager localisation GPS</button><small id="locStatus" style="display:block;text-align:center"></small>
+<div class="pay">
+<label><input type="radio" name="pay" value="livraison" checked> 🚚 A la livraison</label>
+<label><input type="radio" name="pay" value="carte"> 💳 Carte (Visa/Master/e-Dinar/Flouci)</label>
 </div>
-<button class="order-btn" onclick="orderWhatsApp()">Commander Maintenant</button>
+<button id="orderBtn" onclick="orderWhatsApp()">Commander</button>
 </div>
-</div>
-<section class="hero"><div><img src="rond.png" style="width:140px;background:white;border-radius:50%;padding:8px;margin-bottom:20px"><h1 style="font-size:clamp(32px,5vw,52px);line-height:0.95">Le Vrai Huile De<br><span style="color:#C6A15B">KSOUR ESSEF</span></h1><p style="margin:20px auto;max-width:600px;font-size:18px;opacity:0.95">Huile d'olive extra vierge, extrait à froid, de nos oliviers à votre table depuis longs temps.</p><a href="#produits" style="background:#C6A15B;color:#111;padding:14px 30px;border-radius:100px;text-decoration:none;font-weight:900;display:inline-block;margin-top:10px">Découvrir nos huiles →</a></div></section>
-<section id="huilerie" style="padding:80px 5%;background:#FFFEF8;display:flex;flex-wrap:wrap;gap:40px;align-items:center"><div style="flex:1;min-width:300px"><h2 style="font-size:36px;color:#1a3a1a">Huilerie Bouker,<br>Une histoire de famille</h2><p style="margin-top:15px;line-height:1.7;color:#444">Au cœur de Ksour essef, nous cultivons et pressons nos olives avec passion. Pas d'intermédiaire, pas de mélange. Juste l'olive, la pierre, et le savoir-faire Tunisien authentique.</p><div style="display:flex;gap:16px;margin-top:25px;flex-wrap:wrap"><div><b style="font-size:20px;color:#C6A15B">Extra Vierge</b><br><small>Première Pression</small></div><div><b style="font-size:20px;color:#C6A15B">100% BIO</b><br><small>Naturelle & Pure</small></div><div><b style="font-size:20px;color:#C6A15B">À Froid</b><br><small>Extraction</small></div></div></div><div style="flex:1;min-width:300px"><img src="expo.png" style="width:100%;border-radius:20px;box-shadow:0 20px 40px rgba(0,0,0,0.15)"><p style="text-align:center;margin-top:10px;font-size:13px;opacity:0.6">Salon International - Tunisie à l'honneur 🇹🇳</p></div></section>
-<section style="padding:60px 5%;background:#1a3a1a;color:white;text-align:center"><h2 style="font-size:32px">De l'arbre à la bouteille</h2><p style="opacity:0.7;margin-top:10px">Qualité contrôlée à chaque étape</p><img src="hero.png" style="width:100%;max-width:800px;border-radius:20px;margin-top:30px;height:380px;object-fit:cover"></section>
-<section style="padding:80px 5%;display:flex;flex-wrap:wrap;gap:40px;align-items:center;background:white"><div style="flex:1;min-width:300px"><img src="bidon.png" style="width:100%;border-radius:20px;background:#f7f5ee"></div><div style="flex:1;min-width:300px"><h2 style="font-size:32px;color:#1a3a1a">Notre Best-Seller</h2><p style="margin:15px 0;color:#555;line-height:1.6">Le format familial idéal. Conservation parfaite dans son bidon métal premium.</p><b style="font-size:28px">48 DT Seulement</b><br><button onclick="addToCart('Bidon 3L',48,'bidon.png')" style="margin-top:15px;background:#C6A15B;color:#111;border:none;padding:14px 30px;border-radius:100px;font-weight:900;cursor:pointer">+ Ajouter au panier</button></div></section>
-<section id="produits" style="background:#f7f5ee;padding:60px 0"><h2 style="text-align:center;font-size:36px;color:#1a3a1a">Nos Huiles d'Exception</h2><div style="text-align:center;margin:15px 0"><span style="background:white;padding:10px 18px;border-radius:100px;box-shadow:0 4px 15px rgba(0,0,0,0.05)"><img src="rond.png" class="badge-logo">Huile Bouker Bio - C82 • Ouvert 24h <b style="background:#1a3a1a;color:white;padding:6px 12px;border-radius:100px;margin-left:10px">1L/2L/5L/10L/20L/50L</b></span></div><div class="prod-grid"><div class="prod-card"><img src="1L.png"><h3>1 Litre</h3><p>16 DT</p><button onclick="addToCart('1L',16,'1L.png')" style="background:#1a3a1a;color:white;padding:8px 14px;border-radius:20px;border:none;cursor:pointer;margin-top:8px">+ Ajouter</button></div><div class="prod-card"><img src="2L.png"><h3>2 Litres</h3><p>32 DT</p><button onclick="addToCart('2L',32,'2L.png')" style="background:#1a3a1a;color:white;padding:8px 14px;border-radius:20px;border:none;cursor:pointer;margin-top:8px">+ Ajouter</button></div><div class="prod-card"><img src="5L.png"><h3>5 Litres</h3><p>80 DT</p><button onclick="addToCart('5L',80,'5L.png')" style="background:#C6A15B;color:#111;padding:8px 14px;border-radius:20px;border:none;cursor:pointer;font-weight:900;margin-top:8px">+ Ajouter</button></div><div class="prod-card"><img src="10L.png"><h3>10 Litres</h3><p>160 DT</p><button onclick="addToCart('10L',160,'10L.png')" style="background:#1a3a1a;color:white;padding:8px 14px;border-radius:20px;border:none;cursor:pointer;margin-top:8px">+ Ajouter</button></div><div class="prod-card"><img src="20L.png"><h3>20 Litres</h3><p>320 DT</p><button onclick="addToCart('20L',320,'20L.png')" style="background:#1a3a1a;color:white;padding:8px 14px;border-radius:20px;border:none;cursor:pointer;margin-top:8px">+ Ajouter</button></div><div class="prod-card"><img src="50L.png"><h3>50 Litres</h3><p>800 DT</p><button onclick="addToCart('50L',800,'50L.png')" style="background:#1a3a1a;color:white;padding:8px 14px;border-radius:20px;border:none;cursor:pointer;margin-top:8px">+ Ajouter</button></div></div></section>
 <script>
-let cart=[];
-function toggleCart(){document.getElementById('cartPanel').classList.toggle('open');document.getElementById('cartOverlay').classList.toggle('show')}
-function addToCart(name,price,img){let f=cart.find(i=>i.name===name);if(f){f.qty++}else{cart.push({name,price,img,qty:1})}updateCart();document.getElementById('cartPanel').classList.add('open');document.getElementById('cartOverlay').classList.add('show')}
-function changeQty(name,d){let f=cart.find(i=>i.name===name);if(!f)return;f.qty+=d;if(f.qty<=0){cart=cart.filter(i=>i.name!==name)}updateCart()}
-function updateCart(){let count=cart.reduce((s,i)=>s+i.qty,0);document.getElementById('cartCount').innerText=count;let itemsDiv=document.getElementById('cartItems');if(cart.length===0){itemsDiv.innerHTML='<p style="text-align:center;opacity:0.5;margin-top:50px">Panier vide</p>';document.getElementById('subtotal').innerText='0 DT';document.getElementById('total').innerText='0 DT';document.getElementById('delivery').innerText='8 DT';document.getElementById('freeMsg').innerHTML='';return}let subtotal=cart.reduce((s,i)=>s+i.price*i.qty,0);let delivery=subtotal>=400?0:8;let total=subtotal+delivery;let html='';cart.forEach(i=>{html+=`<div class="cart-item"><img src="${i.img}"><div style="flex:1"><b>${i.name} - ${i.price} DT</b><br>${i.price*i.qty} DT<div class="qty"><button onclick="changeQty('${i.name}',-1)">-</button><span>${i.qty}</span><button onclick="changeQty('${i.name}',1)">+</button></div></div><button onclick="changeQty('${i.name}',-100)" style="border:none;background:none;cursor:pointer">🗑️</button></div>`});itemsDiv.innerHTML=html;document.getElementById('subtotal').innerText=subtotal+' DT';document.getElementById('delivery').innerText=delivery===0?'GRATUIT 🎉':delivery+' DT';document.getElementById('total').innerText=total+' DT';let freeDiv=document.getElementById('freeMsg');if(subtotal>=400){freeDiv.innerHTML='<div class="free-msg ok">🎉 Livraison GRATUITE! -8 DT</div>'}else{let rest=400-subtotal;freeDiv.innerHTML=`<div class="free-msg no">💡 +${rest} DT = livraison gratuite!</div>`}}
-document.querySelectorAll('input[name="pay"]').forEach(r=>{r.addEventListener('change',()=>{document.getElementById('cardInfo').style.display=document.querySelector('input[name="pay"]:checked').value==='carte'?'block':'none'})});
-let clientLocation = "";
-
-function getLocation(){
- if(navigator.geolocation){
-   navigator.geolocation.getCurrentPosition(pos=>{
-     clientLocation = `https://www.google.com/maps?q=${pos.coords.latitude},${pos.coords.longitude}`;
-     alert("📍 Localisation ajoutée!");
-     document.getElementById('locBtn').innerText = "✅ Position ajoutée";
-   }, ()=>{ alert("Activez GPS!"); });
- } else { alert("GPS non supporté"); }
-}
- async function orderWhatsApp(){
- if(cart.length===0){alert('Panier vide!');return}
- let name=document.getElementById('clientName').value;
- let tel=document.getElementById('clientTel').value;
- let adr=document.getElementById('clientAdr').value;
- if(!name||!tel){alert('Nom et tel obligatoires!');return}
- let subtotal=cart.reduce((s,i)=>s+i.price*i.qty,0);
- let delivery=subtotal>=400?0:8;
- let total=subtotal+delivery;
- let payMethod=document.querySelector('input[name="pay"]:checked').value;
-
- if(payMethod==='livraison'){
-   let detail=cart.map(i=>`${i.qty}x ${i.name} = ${i.price*i.qty} DT`).join('%0A');
-   let msg=`Aslema Huilerie Bouker%0A%0A${detail}%0A%0ATOTAL: ${total} DT%0APaiement: A la livraison%0A%0ANom: ${name}%0ATel: ${tel}%0AAdresse: ${adr}%0ALocalisation: ${clientLocation}`;
-   window.open(`https://api.whatsapp.com/send?phone=21628693560&text=${msg}`,'_blank');
-   return;
- }
-
- // FLOUCI - Visa/Mastercard...
- const FLOUCI_TOKEN = "HAT TOKEN MTE3K HNA";
- const FLOUCI_SECRET = "HAT SECRET MTE3K HNA";
- try{
-   let res = await fetch("https://api.flouci.com/api/generate_payment",{
-     method:"POST",
-     headers:{"Content-Type":"application/json"},
-     body: JSON.stringify({
-       app_token: FLOUCI_TOKEN,
-       app_secret: FLOUCI_SECRET,
-       amount: total*1000,
-       accept_card: "true",
-       success_link: "https://huilebouker.github.io/success.html",
-       fail_link: "https://huilebouker.github.io/fail.html",
-       developer_tracking_id: Date.now().toString()
-     })
-   });
-   let data = await res.json();
-   if(data.result && data.result.link){ window.location.href = data.result.link; }
-   else{ alert("Erreur: "+JSON.stringify(data)); }
- }catch(e){ alert(e.message); }
-}
+const PRODUCTS=[{id:1,name:"Huile 1L",price:28,img:"https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400"},{id:2,name:"Huile 3L",price:75,img:"https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400"},{id:3,name:"Huile 5L",price:120,img:"https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400"}];
+let cart=[];let clientLocation="";
+function renderProducts(){let h="";PRODUCTS.forEach(p=>{h+=`<div class=card><img src=${p.img}><h3>${p.name}</h3><div style=color:#2d4a22;font-weight:bold>${p.price} DT</div><button onclick=addToCart(${p.id})>Ajouter</button></div>`});document.getElementById('products').innerHTML=h}
+function addToCart(id){let pr=PRODUCTS.find(x=>x.id==id);let ex=cart.find(x=>x.id==id);if(ex)ex.qty++;else cart.push({...pr,qty:1});renderCart()}
+function renderCart(){if(cart.length==0){document.getElementById('cartItems').innerText='Vide';document.getElementById('cartTotal').innerText='0 DT';return}let sub=0,html="";cart.forEach((it,i)=>{sub+=it.price*it.qty;html+=`<div class=cart-item><span>${it.qty}x ${it.name}</span><span>${it.price*it.qty} DT <span style=color:red;cursor:pointer onclick="cart.splice(${i},1);renderCart()">✕</span></span></div>`});let del=sub>=400?0:8;document.getElementById('cartItems').innerHTML=html;document.getElementById('cartTotal').innerText=(sub+del)+' DT';document.getElementById('deliveryInfo').innerText=del==0?'Livraison gratuite 🎉':`Sous-total ${sub} DT + Livraison ${del} DT`}
+function getLocation(){let s=document.getElementById('locStatus');let b=document.getElementById('locBtn');s.innerText='Recherche...';if(navigator.geolocation){navigator.geolocation.getCurrentPosition(p=>{clientLocation=`https://www.google.com/maps?q=${p.coords.latitude},${p.coords.longitude}`;s.innerText='✅ Position ajoutée';b.innerText='✅ Position ajoutée';b.style.background='#128C7E'},()=>{s.innerText='Activez GPS';alert('Activez GPS')})}else s.innerText='GPS non supporté'}
+async function orderWhatsApp(){if(cart.length==0){alert('Panier vide');return}let name=document.getElementById('clientName').value.trim();let tel=document.getElementById('clientTel').value.trim();let adr=document.getElementById('clientAdr').value.trim();if(!name||!tel){alert('Nom et Tel obligatoires');return}let sub=cart.reduce((s,i)=>s+i.price*i.qty,0);let del=sub>=400?0:8;let total=sub+del;let pay=document.querySelector('input[name=pay]:checked').value;let loc=clientLocation?`\nLocalisation: ${clientLocation}`:"";let detail=cart.map(i=>`${i.qty}x ${i.name} = ${i.price*i.qty} DT`).join('\n');if(pay==='livraison'){let msg=`Salam Bouker\n\n${detail}\n\nTOTAL: ${total} DT\nPaiement: Livraison\n\nNom: ${name}\nTel: ${tel}\nAdr: ${adr}${loc}`;window.open(`https://api.whatsapp.com/send?phone=21628693560&text=${encodeURIComponent(msg)}`,'_blank');return}
+const PUBLIC_KEY="PUT_PUBLIC_KEY_HERE";const PRIVATE_KEY="PUT_PRIVATE_KEY_HERE";
+if(PUBLIC_KEY.includes("PUT_")){alert("Token Flouci mazal - commande par WhatsApp");let msg=`Salam Bouker\n\n${detail}\nTOTAL: ${total} DT\nCarte demandée\n\nNom: ${name}\nTel: ${tel}\nAdr: ${adr}${loc}`;window.open(`https://api.whatsapp.com/send?phone=21628693560&text=${encodeURIComponent(msg)}`,'_blank');return}
+try{document.getElementById('orderBtn').innerText='Redirection...';let res=await fetch("https://developers.flouci.com/api/v2/generate_payment",{method:"POST",headers:{"Content-Type":"application/json","Authorization":`Bearer ${PUBLIC_KEY}:${PRIVATE_KEY}`},body:JSON.stringify({amount:(total*1000).toString(),accept_card:true,success_link:location.origin+"/success.html",fail_link:location.origin+"/fail.html",developer_tracking_id:Date.now().toString()})});let data=await res.json();if(data.result&&data.result.link){location.href=data.result.link}else{alert("Erreur Flouci: "+JSON.stringify(data));document.getElementById('orderBtn').innerText='Commander'}}catch(e){alert(e.message);document.getElementById('orderBtn').innerText='Commander'}}
+renderProducts();renderCart();
 </script>
 </body>
 </html>

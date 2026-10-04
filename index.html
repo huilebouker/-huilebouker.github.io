@@ -67,7 +67,50 @@ function addToCart(name,price,img){let f=cart.find(i=>i.name===name);if(f){f.qty
 function changeQty(name,d){let f=cart.find(i=>i.name===name);if(!f)return;f.qty+=d;if(f.qty<=0){cart=cart.filter(i=>i.name!==name)}updateCart()}
 function updateCart(){let count=cart.reduce((s,i)=>s+i.qty,0);document.getElementById('cartCount').innerText=count;let itemsDiv=document.getElementById('cartItems');if(cart.length===0){itemsDiv.innerHTML='<p style="text-align:center;opacity:0.5;margin-top:50px">Panier vide</p>';document.getElementById('subtotal').innerText='0 DT';document.getElementById('total').innerText='0 DT';document.getElementById('delivery').innerText='8 DT';document.getElementById('freeMsg').innerHTML='';return}let subtotal=cart.reduce((s,i)=>s+i.price*i.qty,0);let delivery=subtotal>=400?0:8;let total=subtotal+delivery;let html='';cart.forEach(i=>{html+=`<div class="cart-item"><img src="${i.img}"><div style="flex:1"><b>${i.name} - ${i.price} DT</b><br>${i.price*i.qty} DT<div class="qty"><button onclick="changeQty('${i.name}',-1)">-</button><span>${i.qty}</span><button onclick="changeQty('${i.name}',1)">+</button></div></div><button onclick="changeQty('${i.name}',-100)" style="border:none;background:none;cursor:pointer">🗑️</button></div>`});itemsDiv.innerHTML=html;document.getElementById('subtotal').innerText=subtotal+' DT';document.getElementById('delivery').innerText=delivery===0?'GRATUIT 🎉':delivery+' DT';document.getElementById('total').innerText=total+' DT';let freeDiv=document.getElementById('freeMsg');if(subtotal>=400){freeDiv.innerHTML='<div class="free-msg ok">🎉 Livraison GRATUITE! -8 DT</div>'}else{let rest=400-subtotal;freeDiv.innerHTML=`<div class="free-msg no">💡 +${rest} DT = livraison gratuite!</div>`}}
 document.querySelectorAll('input[name="pay"]').forEach(r=>{r.addEventListener('change',()=>{document.getElementById('cardInfo').style.display=document.querySelector('input[name="pay"]:checked').value==='carte'?'block':'none'})});
-function orderWhatsApp(){if(cart.length===0){alert('Panier vide!');return}let name=document.getElementById('clientName').value;let tel=document.getElementById('clientTel').value;let adr=document.getElementById('clientAdr').value;if(!name||!tel){alert('Nom et tel obligatoires!');return}let subtotal=cart.reduce((s,i)=>s+i.price*i.qty,0);let delivery=subtotal>=400?0:8;let total=subtotal+delivery;let payMethod=document.querySelector('input[name="pay"]:checked').value;let payLabel=payMethod==='carte'?'Carte Bancaire (Flouci)':'A la livraison';let detail=cart.map(i=>`${i.qty}x ${i.name} = ${i.price*i.qty} DT`).join('%0A');let msg=`Salam Huilerie Bouker%0A%0A${detail}%0A%0ASous-total: ${subtotal} DT%0ALivraison: ${delivery===0?'GRATUITE':delivery+' DT'}%0ATOTAL: ${total} DT%0APaiement: ${payLabel}%0A%0ANom: ${name}%0ATel: ${tel}%0AAdresse: ${adr}`;window.open(`https://api.whatsapp.com/send?phone=21628693560&text=${msg}`,'_blank')}
+async function orderWhatsApp(){
+ if(cart.length===0){alert('Panier vide!');return}
+ let name=document.getElementById('clientName').value;
+ let tel=document.getElementById('clientTel').value;
+ let adr=document.getElementById('clientAdr').value;
+ if(!name||!tel){alert('Nom et tel obligatoires!');return}
+ let subtotal=cart.reduce((s,i)=>s+i.price*i.qty,0);
+ let delivery=subtotal>=400?0:8;
+ let total=subtotal+delivery;
+ let payMethod=document.querySelector('input[name="pay"]:checked').value;
+
+ // Ken paiement à la livraison - kima 9bal WhatsApp
+ if(payMethod==='livraison'){
+   let detail=cart.map(i=>`${i.qty}x ${i.name} = ${i.price*i.qty} DT`).join('%0A');
+   let msg=`Salam Huilerie Bouker%0A%0A${detail}%0A%0ASous-total: ${subtotal} DT%0ALivraison: ${delivery===0?'GRATUITE':delivery+' DT'}%0ATOTAL: ${total} DT%0APaiement: A la livraison%0A%0ANom: ${name}%0ATel: ${tel}%0AAdresse: ${adr}`;
+   window.open(`https://api.whatsapp.com/send?phone=21628693560&text=${msg}`,'_blank');
+   return;
+ }
+
+ // Ken paiement par carte - yemchi lil Konnect
+ // BADAL HEDHOM B MTE3K
+ const KONNECT_API_KEY = "HAT API KEY MTE3K HNA";
+ const WALLET_ID = "HAT WALLET ID MTE3K HNA";
+
+ try{
+   let res = await fetch("https://api.konnect.network/api/v2/payments/init-payment",{
+     method:"POST",
+     headers:{"x-api-key":KONNECT_API_KEY,"Content-Type":"application/json"},
+     body: JSON.stringify({
+       receiverWalletId: WALLET_ID,
+       amount: total*1000, // Konnect ye7seb b millime
+       description: `Huile Bouker - ${name} - ${tel}`,
+       acceptedPaymentMethods: ["bank_card","e-DINAR","flouci"],
+       successUrl: "https://huilebouker.tn/success.html",
+       failUrl: "https://huilebouker.tn/fail.html",
+       webhook: "https://huilebouker.tn/webhook",
+       orderId: Date.now().toString()
+     })
+   });
+   let data = await res.json();
+   if(data.payUrl){ window.location.href = data.payUrl; }
+   else{ alert("Erreur paiement: "+JSON.stringify(data)); }
+ }catch(e){ alert("Erreur: "+e.message); }
+}
 </script>
 </body>
 </html>

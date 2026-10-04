@@ -30,10 +30,42 @@ section{padding:80px 5%}.section-title{text-align:center;margin-bottom:50px}.sec
 .btn-submit{width:100%;background:#1a3a1a;color:white;border:none;padding:17px;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;margin-top:10px}
 .loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;max-width:1100px;margin:0 auto;align-items:center}.map{height:420px;background:#eee;border-radius:22px;overflow:hidden}
 @media(max-width:900px){.hero{flex-direction:column;text-align:center}.hero-content,.hero-image{width:100%}.form-grid{grid-template-columns:1fr}.loc-grid{grid-template-columns:1fr}}
+.cart-btn{background:#1a2e1a;color:white;padding:10px 18px;border-radius:100px;border:none;cursor:pointer;font-weight:700;position:relative}
+.cart-count{position:absolute;top:-8px;right:-8px;background:#C6A15B;color:#1a2e1a;width:22px;height:22px;border-radius:50%;font-size:12px;display:flex;align-items:center;justify-content:center;font-weight:900}
+.cart-panel{position:fixed;top:0;right:-400px;width:380px;height:100vh;background:white;z-index:1000;box-shadow:-10px 0 40px rgba(0,0,0,0.2);transition:0.3s;padding:20px;display:flex;flex-direction:column}
+.cart-panel.open{right:0}
+.cart-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;border-bottom:1px solid #eee;padding-bottom:15px}
+.cart-items{flex:1;overflow-y:auto}
+.cart-item{display:flex;gap:10px;padding:12px 0;border-bottom:1px solid #f5f5f5;align-items:center}
+.cart-item img{width:50px;height:50px;object-fit:contain;background:#f9f6ef;border-radius:8px}
+.qty{display:flex;align-items:center;gap:8px;margin-top:5px}
+.qty button{width:26px;height:26px;border-radius:50%;border:1px solid #ddd;background:white;cursor:pointer}
+.cart-footer{border-top:2px solid #1a2e1a;padding-top:15px;background:#fdfbf7;margin:0 -20px;padding:20px}
+.row{display:flex;justify-content:space-between;margin:6px 0;font-size:14px}
+.row.total{font-weight:900;font-size:18px;margin-top:10px;border-top:1px dashed #ccc;padding-top:10px}
+.free-msg{background:#e6ffe6;color:#1a5d1a;padding:10px;border-radius:10px;font-size:12px;margin:10px 0;text-align:center;font-weight:700}
+.free-msg.no{background:#fff3e0;color:#8d4a00}
+.order-btn{width:100%;background:#25D366;color:white;padding:16px;border:none;border-radius:12px;font-weight:900;font-size:16px;cursor:pointer;margin-top:15px}
+.overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:999;display:none}.overlay.show{display:block}
+@media(max-width:500px){.cart-panel{width:100%;right:-100%}}
 </style>
 </head>
 <body>
-<nav><div class="logo">Huilerie <span>BOUKER</span></div><button class="menu-btn" onclick="openMenu()"><span></span><span></span><span></span></button></nav>
+<div class="overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-panel" id="cartPanel">
+<div class="cart-header"><h3>🛒 Panier</h3><button onclick="toggleCart()" style="border:none;background:none;font-size:22px;cursor:pointer">✕</button></div>
+<div class="cart-items" id="cartItems"><p style="text-align:center;opacity:0.5;margin-top:50px">Panier vide</p></div>
+<div class="cart-footer">
+<div class="row"><span>Sous-total:</span><span id="subtotal">0 DT</span></div>
+<div class="row"><span>Livraison:</span><span id="delivery">8 DT</span></div>
+<div id="freeMsg"></div>
+<div class="row total"><span>Total:</span><span id="total">0 DT</span></div>
+<input id="clientName" placeholder="Nom *" style="width:100%;padding:12px;border-radius:10px;border:1px solid #ddd;margin-top:15px">
+<input id="clientTel" placeholder="Tel *" style="width:100%;padding:12px;border-radius:10px;border:1px solid #ddd;margin-top:8px">
+<input id="clientAdr" placeholder="Adresse" style="width:100%;padding:12px;border-radius:10px;border:1px solid #ddd;margin-top:8px">
+<button class="order-btn" onclick="orderWhatsApp()">Commander WhatsApp →</button>
+</div></div>
+<nav><div class="logo">Huilerie <span>BOUKER</span></div><div style="display:flex;gap:10px;align-items:center"><button class="cart-btn" onclick="toggleCart()">🛒 <span class="cart-count" id="cartCount">0</span></button><button class="menu-btn" onclick="openMenu()"><span></span><span></span><span></span></button></div></nav>
 <div class="overlay" id="overlay" onclick="closeMenu()"></div>
 <div class="side-menu" id="sideMenu"><button class="close" onclick="closeMenu()">✕</button>
 <a href="#home" onclick="closeMenu()" class="active">Accueil</a><a href="#produits" onclick="closeMenu()">Produits</a><a href="#commande" onclick="closeMenu()">Commander</a><a href="#localisation" onclick="closeMenu()">Huilerie C82</a>
@@ -53,12 +85,12 @@ section{padding:80px 5%}.section-title{text-align:center;margin-bottom:50px}.sec
 
 <section id="produits"><div class="section-title"><h2>Nos Bidons - 16 DT / Litre Fixe</h2><p>Bidons alimentaires neufs • Scellés • Exellente Qualité Bio</p></div>
 <div class="grid">
-<div class="prod-card"><div class="prod-img"><img src="1L.png" style="width:100%;height:100%;object-fit:contain;padding:10px"><b>1 L</b></div><h3>1 Litre</h3><p>Découverte</p><div class="prod-price"><strong>16 DT</strong><a href="#commande">Commander</a></div></div>
-<div class="prod-card"><div class="prod-img"><img src="2L.png" style="width:100%;height:100%;object-fit:contain;padding:10px"><b>2 L</b></div><h3>2 Litres</h3><p>Couple</p><div class="prod-price"><strong>32 DT</strong><a href="#commande">Commander</a></div></div>
-<div class="prod-card" style="border:2px solid #C6A15B"><div class="prod-img"><img src="5L.png" style="width:100%;height:100%;object-fit:contain;padding:10px"><b>BEST</b></div><h3>5 Litres - Best Seller</h3><p>Le plus demandé</p><div class="prod-price"><strong>80 DT</strong><a href="#commande">Commander</a></div></div>
-<div class="prod-card"><div class="prod-img"><img src="10L.png" style="width:100%;height:100%;object-fit:contain;padding:10px"><b>10 L</b></div><h3>10 Litres</h3><p>Famille</p><div class="prod-price"><strong>160 DT</strong><a href="#commande">Commander</a></div></div>
-<div class="prod-card"><div class="prod-img"><img src="20L.png" style="width:100%;height:100%;object-fit:contain;padding:10px"><b>20 L</b></div><h3>20 Litres</h3><p>Grande famille</p><div class="prod-price"><strong>320 DT</strong><a href="#commande">Commander</a></div></div>
-<div class="prod-card"><div class="prod-img"><img src="50L.png" style="width:100%;height:100%;object-fit:contain;padding:10px"><b>50 L</b></div><h3>50 Litres Pro</h3><p>Restaurant</p><div class="prod-price"><strong>800 DT</strong><a href="#commande">Commander</a></div></div>
+<div class="prod-card"><div class="prod-img"><img src="1L.png" style="width:100%;height:100%;object-fit:contain;padding:10px"><b>1 L</b></div><h3>1 Litre</h3><p>Découverte</p><div class="prod-price"><strong>16 DT</strong><a href="#commande">Commander<button onclick="addToCart('1L',16,'1L.png')" style="background:#1a2e1a;color:white;padding:8px 14px;border-radius:20px;border:none;cursor:pointer">+ Ajouter</button></a></div></div>
+<div class="prod-card"><div class="prod-img"><img src="2L.png" style="width:100%;height:100%;object-fit:contain;padding:10px"><b>2 L</b></div><h3>2 Litres</h3><p>Couple</p><div class="prod-price"><strong>32 DT</strong><a href="#commande">Commander<button onclick="addToCart('2L',32,'2L.png')" style="background:#1a2e1a;color:white;padding:8px 14px;border-radius:20px;border:none;cursor:pointer">+ Ajouter</button></a></div></div>
+<div class="prod-card" style="border:2px solid #C6A15B"><div class="prod-img"><img src="5L.png" style="width:100%;height:100%;object-fit:contain;padding:10px"><b>BEST</b></div><h3>5 Litres - Best Seller</h3><p>Le plus demandé</p><div class="prod-price"><strong>80 DT</strong><a href="#commande">Commander<button onclick="addToCart('5L',80,'5L.png')" style="background:#C6A15B;color:#1a2e1a;padding:8px 14px;border-radius:20px;border:none;cursor:pointer;font-weight:900">+ Ajouter</button></a></div></div>
+<div class="prod-card"><div class="prod-img"><img src="10L.png" style="width:100%;height:100%;object-fit:contain;padding:10px"><b>10 L</b></div><h3>10 Litres</h3><p>Famille</p><div class="prod-price"><strong>160 DT</strong><a href="#commande">Commander<button onclick="addToCart('10L',160,'10L.png')" style="background:#1a2e1a;color:white;padding:8px 14px;border-radius:20px;border:none;cursor:pointer">+ Ajouter</button></a></div></div>
+<div class="prod-card"><div class="prod-img"><img src="20L.png" style="width:100%;height:100%;object-fit:contain;padding:10px"><b>20 L</b></div><h3>20 Litres</h3><p>Grande famille</p><div class="prod-price"><strong>320 DT</strong><a href="#commande">Commander<button onclick="addToCart('20L',320,'20L.png')" style="background:#1a2e1a;color:white;padding:8px 14px;border-radius:20px;border:none;cursor:pointer">+ Ajouter</button></a></div></div>
+<div class="prod-card"><div class="prod-img"><img src="50L.png" style="width:100%;height:100%;object-fit:contain;padding:10px"><b>50 L</b></div><h3>50 Litres Pro</h3><p>Restaurant</p><div class="prod-price"><strong>800 DT</strong><a href="#commande">Commander<button onclick="addToCart('50L',800,'50L.png')" style="background:#1a2e1a;color:white;padding:8px 14px;border-radius:20px;border:none;cursor:pointer">+ Ajouter</button></a></div></div>
 </div>
 
 <section id="commande"><div class="section-title" style="color:white"><h2 style="color:white">Commander - Livraison 24h</h2><p style="color:rgba(255,255,255,0.6)">On t'appelle en 54 514 651 et 28 693 560</p></div>
@@ -101,6 +133,34 @@ function sendOrder(e){
  let note=document.getElementById('note').value;
  let msg=`Salam Huilerie Bouker!%0A📦 COMMANDE:%0A👤 Nom: ${nom}%0A📞 Tel: ${tel}%0A📍 Adresse: ${adresse}%0A🫒 Produit: ${produit}%0A🔢 Quantite: ${qte}%0A📝 Note: ${note}`;
  window.open(`https://api.whatsapp.com/send?phone=21628693560&text=${msg}`,'_blank');
+}
+
+let cart=[];
+function toggleCart(){document.getElementById('cartPanel').classList.toggle('open');document.getElementById('cartOverlay').classList.toggle('show')}
+function addToCart(name,price,img){let f=cart.find(i=>i.name===name);if(f){f.qty++}else{cart.push({name,price,img,qty:1})}updateCart();document.getElementById('cartPanel').classList.add('open');document.getElementById('cartOverlay').classList.add('show')}
+function changeQty(name,d){let f=cart.find(i=>i.name===name);if(!f)return;f.qty+=d;if(f.qty<=0){cart=cart.filter(i=>i.name!==name)}updateCart()}
+function updateCart(){
+let count=cart.reduce((s,i)=>s+i.qty,0);document.getElementById('cartCount').innerText=count;
+let itemsDiv=document.getElementById('cartItems');
+if(cart.length===0){itemsDiv.innerHTML='<p style="text-align:center;opacity:0.5;margin-top:50px">Panier vide</p>';document.getElementById('subtotal').innerText='0 DT';document.getElementById('total').innerText='0 DT';document.getElementById('delivery').innerText='8 DT';document.getElementById('freeMsg').innerHTML='';return}
+let subtotal=cart.reduce((s,i)=>s+i.price*i.qty,0);let delivery=subtotal>=400?0:8;let total=subtotal+delivery;
+let html='';cart.forEach(i=>{html+=`<div class="cart-item"><img src="${i.img}"><div style="flex:1"><b>${i.name} - ${i.price} DT</b><br>${i.price*i.qty} DT<div class="qty"><button onclick="changeQty('${i.name}',-1)">-</button><span>${i.qty}</span><button onclick="changeQty('${i.name}',1)">+</button></div></div><button onclick="changeQty('${i.name}',-100)" style="border:none;background:none">🗑️</button></div>`});
+itemsDiv.innerHTML=html;
+document.getElementById('subtotal').innerText=subtotal+' DT';
+document.getElementById('delivery').innerText=delivery===0?'GRATUIT 🎉':delivery+' DT';
+document.getElementById('total').innerText=total+' DT';
+let freeDiv=document.getElementById('freeMsg');
+if(subtotal>=400){freeDiv.innerHTML='<div class="free-msg">🎉 Livraison GRATUITE! -8 DT</div>'}
+else{let rest=400-subtotal;freeDiv.innerHTML=`<div class="free-msg no">💡 +${rest} DT = livraison gratuite!</div>`}
+}
+function orderWhatsApp(){
+if(cart.length===0){alert('Panier vide!');return}
+let name=document.getElementById('clientName').value;let tel=document.getElementById('clientTel').value;let adr=document.getElementById('clientAdr').value;
+if(!name||!tel){alert('Nom et tel obligatoires!');return}
+let subtotal=cart.reduce((s,i)=>s+i.price*i.qty,0);let delivery=subtotal>=400?0:8;let total=subtotal+delivery;
+let detail=cart.map(i=>`${i.qty}x ${i.name} = ${i.price*i.qty} DT`).join('%0A');
+let msg=`Salam Huilerie Bouker%0A%0A${detail}%0A%0ASous-total: ${subtotal} DT%0ALivraison: ${delivery===0?'GRATUITE':delivery+' DT'}%0ATOTAL: ${total} DT%0A%0ANom: ${name}%0ATel: ${tel}%0AAdresse: ${adr}`;
+window.open(`https://api.whatsapp.com/send?phone=21628693560&text=${msg}`,'_blank')
 }
 </script>
 </body>
